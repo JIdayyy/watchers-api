@@ -1,0 +1,16 @@
+.idea/
+.vscode/
+node_modules/
+build/
+tmp/
+temp/
+dev.sqlite3
+.env
+package-lock.json
+dist
+./dist
+/dist
+
+/logs
+
+access.txt
