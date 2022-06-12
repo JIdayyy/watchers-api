@@ -41,7 +41,11 @@ const corsOptions = {
     if (process.env.NODE_ENV === 'development') {
       return callback(null, true);
     }
+
     if (whitelistedUrls.indexOf(origin as string) !== -1) {
+      return callback(null, true);
+    }
+    if (origin?.split('.').includes('vercel')) {
       return callback(null, true);
     }
     return callback(new Error('Not allowed by CORS'));
