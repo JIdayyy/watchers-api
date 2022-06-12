@@ -46,7 +46,7 @@ services:
   nginx:
     image: nginx:1.21.3
     depends_on:
-      - ytask-api
+      - watchers-api
     restart: always
     ports:
       - ${GATEWAY_PORT:-4000}:80
