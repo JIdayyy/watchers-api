@@ -38,6 +38,7 @@ const corsOptions = {
     origin: string | undefined,
     callback: (err: Error | null, check?: boolean) => Error | void
   ) => {
+    console.log('incoming origin', origin);
     if (process.env.NODE_ENV === 'development') {
       return callback(null, true);
     }
