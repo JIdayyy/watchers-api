@@ -29,6 +29,9 @@ const { PORT } = process.env;
   server.applyMiddleware({
     app,
     cors: false,
+    bodyParserConfig: {
+      limit: '50mb',
+    },
   });
 
   const serverStartLogs = () => {
