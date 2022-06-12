@@ -48,6 +48,7 @@ const corsOptions = {
     if (origin?.split('.').includes('vercel')) {
       return callback(null, true);
     }
+    console.log('blocked origin', origin);
     return callback(new Error('Not allowed by CORS'));
   },
   credentials: true,
