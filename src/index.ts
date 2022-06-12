@@ -17,7 +17,12 @@ const { PORT } = process.env;
 
   await server.start();
 
-  app.use(graphqlUploadExpress());
+  app.use(
+    graphqlUploadExpress({
+      maxFileSize: 50000000, // 10 MB
+      maxFieldSize: 50000000, // 10 MB
+    })
+  );
 
   app.use(limiter);
 

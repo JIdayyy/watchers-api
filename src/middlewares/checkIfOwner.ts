@@ -23,15 +23,15 @@ const checkIfOwner = async (
 
   const projectId = args.where.id;
 
-  const project = await context.prisma.project.findUnique({
+  const project = await context.prisma.post.findUnique({
     where: {
       id: projectId,
     },
     rejectOnNotFound: true,
   });
 
-  if (context.user.id !== project.project_owner_id) {
-    throw new ApolloError('Only project owner can update project');
+  if (context.user.id !== project.userId) {
+    throw new ApolloError('Only post author can update project');
   }
 
   return next();

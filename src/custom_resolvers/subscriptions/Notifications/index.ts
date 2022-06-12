@@ -1,1 +1,0 @@
-export { SubscribtionsResolver } from './notificationsSubscriptions';

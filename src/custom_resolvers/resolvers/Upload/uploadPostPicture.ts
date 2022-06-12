@@ -4,8 +4,10 @@ import { Arg, Authorized, Ctx, Mutation, Resolver } from 'type-graphql';
 import { Stream, Readable } from 'stream';
 import { ApolloError } from 'apollo-server-core';
 import { GQLContext } from '../../../interfaces';
-import { Post, Role } from '../../../generated/graphql';
+import { Role } from '../../../generated/graphql';
 import { minioService } from '../../../services/minioService';
+import { v4 as uuidv4 } from 'uuid';
+import { Picture } from '../../models/pictureUrl';
 
 export interface Upload {
   filename: string;
@@ -15,19 +17,16 @@ export interface Upload {
 }
 
 @Resolver()
-export class UploadCoverPicture {
+export class UploadPostPicture {
   @Authorized(Role.SUPER_ADMIN, Role.ADMIN, Role.USER, Role.MANAGER)
-  @Mutation(() => Post, {
-    nullable: false,
-  })
-  async uploadCoverPicture(
+  @Mutation(() => Picture)
+  async uploadPostPicture(
     @Ctx() ctx: GQLContext,
     @Arg('file', () => GraphQLUpload)
     { createReadStream, filename }: Upload
-  ): Promise<Post> {
-    const { postId } = ctx.req.query;
-
+  ): Promise<{ url: string }> {
     try {
+      const uuid = uuidv4();
       const stream = createReadStream();
 
       const metadata = {
@@ -35,21 +34,14 @@ export class UploadCoverPicture {
       };
 
       await minioService.putObject(
-        `/cover_picture/${postId}/${filename}`,
+        `/post_pictures/${filename}`,
         stream as Readable,
         metadata
       );
 
-      const updatedUser = await ctx.prisma.post.update({
-        data: {
-          cover_picture: `https://minio-dc-s3.digitalcopilote.re/watchers/cover_picture/${postId}/${filename}`,
-        },
-        where: {
-          id: postId as string,
-        },
-      });
-
-      return updatedUser;
+      return {
+        url: `https://minio-dc-s3.digitalcopilote.re/watchers/post_pictures/${uuid}`,
+      };
     } catch (error) {
       console.log(error);
       throw new ApolloError('error during upload', error as string);
