@@ -1,0 +1,12 @@
+export { AggregateReplyArgs } from "./AggregateReplyArgs";
+export { CreateManyReplyArgs } from "./CreateManyReplyArgs";
+export { CreateReplyArgs } from "./CreateReplyArgs";
+export { DeleteManyReplyArgs } from "./DeleteManyReplyArgs";
+export { DeleteReplyArgs } from "./DeleteReplyArgs";
+export { FindFirstReplyArgs } from "./FindFirstReplyArgs";
+export { FindManyReplyArgs } from "./FindManyReplyArgs";
+export { FindUniqueReplyArgs } from "./FindUniqueReplyArgs";
+export { GroupByReplyArgs } from "./GroupByReplyArgs";
+export { UpdateManyReplyArgs } from "./UpdateManyReplyArgs";
+export { UpdateReplyArgs } from "./UpdateReplyArgs";
+export { UpsertReplyArgs } from "./UpsertReplyArgs";

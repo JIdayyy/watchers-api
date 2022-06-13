@@ -3,9 +3,11 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { BoolFilter } from "../inputs/BoolFilter";
+import { CommentListRelationFilter } from "../inputs/CommentListRelationFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { EnumRoleNullableListFilter } from "../inputs/EnumRoleNullableListFilter";
 import { PostListRelationFilter } from "../inputs/PostListRelationFilter";
+import { ReplyListRelationFilter } from "../inputs/ReplyListRelationFilter";
 import { ResetPasswordListRelationFilter } from "../inputs/ResetPasswordListRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
@@ -34,15 +36,15 @@ export class UserWhereInput {
   })
   id?: StringFilter | undefined;
 
-  @TypeGraphQL.Field(_type => StringFilter, {
+  @TypeGraphQL.Field(_type => StringNullableFilter, {
     nullable: true
   })
-  first_name?: StringFilter | undefined;
+  first_name?: StringNullableFilter | undefined;
 
-  @TypeGraphQL.Field(_type => StringFilter, {
+  @TypeGraphQL.Field(_type => StringNullableFilter, {
     nullable: true
   })
-  last_name?: StringFilter | undefined;
+  last_name?: StringNullableFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
@@ -88,4 +90,19 @@ export class UserWhereInput {
     nullable: true
   })
   Post?: PostListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => CommentListRelationFilter, {
+    nullable: true
+  })
+  Comment?: CommentListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => ReplyListRelationFilter, {
+    nullable: true
+  })
+  Reply?: ReplyListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringFilter, {
+    nullable: true
+  })
+  nickname?: StringFilter | undefined;
 }

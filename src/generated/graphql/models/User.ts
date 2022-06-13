@@ -2,7 +2,9 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
+import { Comment } from "../models/Comment";
 import { Post } from "../models/Post";
+import { Reply } from "../models/Reply";
 import { ResetPassword } from "../models/ResetPassword";
 import { Role } from "../enums/Role";
 import { UserCount } from "../resolvers/outputs/UserCount";
@@ -17,14 +19,14 @@ export class User {
   id!: string;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  first_name!: string;
+  first_name?: string | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  last_name!: string;
+  last_name?: string | null;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
@@ -61,6 +63,15 @@ export class User {
   ResetPassword?: ResetPassword[];
 
   Post?: Post[];
+
+  Comment?: Comment[];
+
+  Reply?: Reply[];
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
+  nickname!: string;
 
   @TypeGraphQL.Field(_type => UserCount, {
     nullable: true

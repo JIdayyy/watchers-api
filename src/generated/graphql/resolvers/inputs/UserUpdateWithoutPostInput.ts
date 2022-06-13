@@ -3,8 +3,10 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { BoolFieldUpdateOperationsInput } from "../inputs/BoolFieldUpdateOperationsInput";
+import { CommentUpdateManyWithoutAuthorInput } from "../inputs/CommentUpdateManyWithoutAuthorInput";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
+import { ReplyUpdateManyWithoutAuthorInput } from "../inputs/ReplyUpdateManyWithoutAuthorInput";
 import { ResetPasswordUpdateManyWithoutUserInput } from "../inputs/ResetPasswordUpdateManyWithoutUserInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 import { UserUpdateroleInput } from "../inputs/UserUpdateroleInput";
@@ -18,15 +20,15 @@ export class UserUpdateWithoutPostInput {
   })
   id?: StringFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
+  @TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput, {
     nullable: true
   })
-  first_name?: StringFieldUpdateOperationsInput | undefined;
+  first_name?: NullableStringFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
+  @TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput, {
     nullable: true
   })
-  last_name?: StringFieldUpdateOperationsInput | undefined;
+  last_name?: NullableStringFieldUpdateOperationsInput | undefined;
 
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
@@ -67,4 +69,19 @@ export class UserUpdateWithoutPostInput {
     nullable: true
   })
   ResetPassword?: ResetPasswordUpdateManyWithoutUserInput | undefined;
+
+  @TypeGraphQL.Field(_type => CommentUpdateManyWithoutAuthorInput, {
+    nullable: true
+  })
+  Comment?: CommentUpdateManyWithoutAuthorInput | undefined;
+
+  @TypeGraphQL.Field(_type => ReplyUpdateManyWithoutAuthorInput, {
+    nullable: true
+  })
+  Reply?: ReplyUpdateManyWithoutAuthorInput | undefined;
+
+  @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
+    nullable: true
+  })
+  nickname?: StringFieldUpdateOperationsInput | undefined;
 }

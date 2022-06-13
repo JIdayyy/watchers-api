@@ -6,11 +6,7 @@ import { Field, InputType } from 'type-graphql';
 export class RegisterInput {
   @Field({ nullable: false })
   @IsAlpha()
-  first_name: string;
-
-  @Field({ nullable: false })
-  @IsAlpha()
-  last_name: string;
+  nickName: string;
 
   @Field({ nullable: false })
   @IsEmail()

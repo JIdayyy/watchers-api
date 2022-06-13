@@ -3,6 +3,7 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
 import { Category } from "../models/Category";
+import { Comment } from "../models/Comment";
 import { Tag } from "../models/Tag";
 import { User } from "../models/User";
 import { PostCount } from "../resolvers/outputs/PostCount";
@@ -66,6 +67,8 @@ export class Post {
   categoryId?: string | null;
 
   Tags?: Tag[];
+
+  Comment?: Comment[];
 
   @TypeGraphQL.Field(_type => PostCount, {
     nullable: true

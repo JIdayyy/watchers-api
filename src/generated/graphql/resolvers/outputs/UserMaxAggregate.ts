@@ -51,4 +51,9 @@ export class UserMaxAggregate {
     nullable: true
   })
   updated_at!: Date | null;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  nickname!: string | null;
 }

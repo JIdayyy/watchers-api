@@ -25,8 +25,7 @@ export class RegisterResolver {
 
     const user = await ctx.prisma.user.create({
       data: {
-        first_name: data.first_name,
-        last_name: data.last_name,
+        nickname: data.nickName,
         email: data.email,
         password: hashedPassword,
         is_disabled: false,

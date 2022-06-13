@@ -2,7 +2,9 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
+import { CommentCreateNestedManyWithoutAuthorInput } from "../inputs/CommentCreateNestedManyWithoutAuthorInput";
 import { PostCreateNestedManyWithoutAuthorInput } from "../inputs/PostCreateNestedManyWithoutAuthorInput";
+import { ReplyCreateNestedManyWithoutAuthorInput } from "../inputs/ReplyCreateNestedManyWithoutAuthorInput";
 import { UserCreateroleInput } from "../inputs/UserCreateroleInput";
 
 @TypeGraphQL.InputType("UserCreateWithoutResetPasswordInput", {
@@ -15,14 +17,14 @@ export class UserCreateWithoutResetPasswordInput {
   id?: string | undefined;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  first_name!: string;
+  first_name?: string | undefined;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  last_name!: string;
+  last_name?: string | undefined;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
@@ -63,4 +65,19 @@ export class UserCreateWithoutResetPasswordInput {
     nullable: true
   })
   Post?: PostCreateNestedManyWithoutAuthorInput | undefined;
+
+  @TypeGraphQL.Field(_type => CommentCreateNestedManyWithoutAuthorInput, {
+    nullable: true
+  })
+  Comment?: CommentCreateNestedManyWithoutAuthorInput | undefined;
+
+  @TypeGraphQL.Field(_type => ReplyCreateNestedManyWithoutAuthorInput, {
+    nullable: true
+  })
+  Reply?: ReplyCreateNestedManyWithoutAuthorInput | undefined;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
+  nickname!: string;
 }

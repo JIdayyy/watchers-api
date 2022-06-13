@@ -11,4 +11,9 @@ export class PostCount {
     nullable: false
   })
   Tags!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
+  Comment!: number;
 }

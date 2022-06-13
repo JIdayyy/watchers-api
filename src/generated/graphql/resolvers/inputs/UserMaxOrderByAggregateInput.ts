@@ -52,4 +52,9 @@ export class UserMaxOrderByAggregateInput {
     nullable: true
   })
   updated_at?: "asc" | "desc" | undefined;
+
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true
+  })
+  nickname?: "asc" | "desc" | undefined;
 }

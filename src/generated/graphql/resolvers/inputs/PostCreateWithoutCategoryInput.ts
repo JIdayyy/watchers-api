@@ -2,6 +2,7 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
+import { CommentCreateNestedManyWithoutPostInput } from "../inputs/CommentCreateNestedManyWithoutPostInput";
 import { TagCreateNestedManyWithoutPostInput } from "../inputs/TagCreateNestedManyWithoutPostInput";
 import { UserCreateNestedOneWithoutPostInput } from "../inputs/UserCreateNestedOneWithoutPostInput";
 
@@ -58,4 +59,9 @@ export class PostCreateWithoutCategoryInput {
     nullable: true
   })
   Tags?: TagCreateNestedManyWithoutPostInput | undefined;
+
+  @TypeGraphQL.Field(_type => CommentCreateNestedManyWithoutPostInput, {
+    nullable: true
+  })
+  Comment?: CommentCreateNestedManyWithoutPostInput | undefined;
 }

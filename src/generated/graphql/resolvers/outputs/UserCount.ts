@@ -16,4 +16,14 @@ export class UserCount {
     nullable: false
   })
   Post!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
+  Comment!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
+  Reply!: number;
 }

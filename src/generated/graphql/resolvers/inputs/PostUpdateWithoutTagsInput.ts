@@ -4,6 +4,7 @@ import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { BoolFieldUpdateOperationsInput } from "../inputs/BoolFieldUpdateOperationsInput";
 import { CategoryUpdateOneWithoutPostInput } from "../inputs/CategoryUpdateOneWithoutPostInput";
+import { CommentUpdateManyWithoutPostInput } from "../inputs/CommentUpdateManyWithoutPostInput";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
@@ -62,4 +63,9 @@ export class PostUpdateWithoutTagsInput {
     nullable: true
   })
   Category?: CategoryUpdateOneWithoutPostInput | undefined;
+
+  @TypeGraphQL.Field(_type => CommentUpdateManyWithoutPostInput, {
+    nullable: true
+  })
+  Comment?: CommentUpdateManyWithoutPostInput | undefined;
 }

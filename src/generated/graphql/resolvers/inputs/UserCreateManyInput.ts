@@ -14,14 +14,14 @@ export class UserCreateManyInput {
   id?: string | undefined;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  first_name!: string;
+  first_name?: string | undefined;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  last_name!: string;
+  last_name?: string | undefined;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
@@ -57,4 +57,9 @@ export class UserCreateManyInput {
     nullable: true
   })
   updated_at?: Date | undefined;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
+  nickname!: string;
 }

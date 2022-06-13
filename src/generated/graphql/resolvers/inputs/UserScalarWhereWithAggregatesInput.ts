@@ -32,15 +32,15 @@ export class UserScalarWhereWithAggregatesInput {
   })
   id?: StringWithAggregatesFilter | undefined;
 
-  @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
+  @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
     nullable: true
   })
-  first_name?: StringWithAggregatesFilter | undefined;
+  first_name?: StringNullableWithAggregatesFilter | undefined;
 
-  @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
+  @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
     nullable: true
   })
-  last_name?: StringWithAggregatesFilter | undefined;
+  last_name?: StringNullableWithAggregatesFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
     nullable: true
@@ -76,4 +76,9 @@ export class UserScalarWhereWithAggregatesInput {
     nullable: true
   })
   updated_at?: DateTimeWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
+    nullable: true
+  })
+  nickname?: StringWithAggregatesFilter | undefined;
 }
