@@ -3,6 +3,7 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { CommentCreateNestedManyWithoutAuthorInput } from "../inputs/CommentCreateNestedManyWithoutAuthorInput";
+import { LikeCreateNestedManyWithoutUserInput } from "../inputs/LikeCreateNestedManyWithoutUserInput";
 import { PostCreateNestedManyWithoutAuthorInput } from "../inputs/PostCreateNestedManyWithoutAuthorInput";
 import { ReplyCreateNestedManyWithoutAuthorInput } from "../inputs/ReplyCreateNestedManyWithoutAuthorInput";
 import { UserCreateroleInput } from "../inputs/UserCreateroleInput";
@@ -80,4 +81,9 @@ export class UserCreateWithoutResetPasswordInput {
     nullable: false
   })
   nickname!: string;
+
+  @TypeGraphQL.Field(_type => LikeCreateNestedManyWithoutUserInput, {
+    nullable: true
+  })
+  Like?: LikeCreateNestedManyWithoutUserInput | undefined;
 }

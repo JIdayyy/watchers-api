@@ -30,8 +30,8 @@ model User {
   ResetPassword ResetPassword[]
   Post          Post[]
   Comment       Comment[]
-  Reply         Reply[]
   nickname      String          @unique
+  Like          Like[]
 }
 
 model Post {
@@ -41,40 +41,38 @@ model Post {
   cover_picture String?
   content       String
   isDraft       Boolean   @default(false)
-  author        User      @relation(fields: [userId], references: [id])
+  author        User      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   created_at    DateTime  @default(now())
   updated_at    DateTime  @updatedAt
   userId        String
-  Category      Category? @relation(fields: [categoryId], references: [id])
+  Category      Category? @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   categoryId    String?
   Tags          Tag[]
+  Comment       Comment[]
+  Like          Like[]
+}
 
-  Comment Comment[]
+model Like {
+  id      String  @id @default(uuid())
+  post_id String?
+  post    Post?   @relation(fields: [post_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  user_id String
+  user    User    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }
 
 model Comment {
-  id         String   @id @default(uuid())
+  id         String    @id @default(uuid())
   picture    String?
   content    String
-  author     User     @relation(fields: [userId], references: [id])
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  author     User      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
   userId     String
-  Post       Post     @relation(fields: [postSlug], references: [slug])
+  Post       Post      @relation(fields: [postSlug], references: [slug], onDelete: Cascade, onUpdate: Cascade)
   postSlug   String
-  Reply      Reply[]
-}
-
-model Reply {
-  id         String   @id @default(uuid())
-  content    String
-  picture    String?
-  author     User     @relation(fields: [userId], references: [id])
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-  userId     String
-  Comment    Comment  @relation(fields: [commentId], references: [id])
-  commentId  String
+  reply      Comment[] @relation("comment_reply")
+  parent     Comment   @relation("comment_reply", fields: [parent_id], references: [id])
+  parent_id  String
 }
 
 model Tag {
@@ -96,7 +94,7 @@ model Category {
 model ResetPassword {
   id         String   @id @default(uuid())
   /// @TypeGraphQL.omit(output: true, input: true)
-  user       User     @relation(fields: [user_id], references: [id])
+  user       User     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
   /// @TypeGraphQL.omit(output: true, input: true)
   user_id    String
   /// @TypeGraphQL.omit(output: true, input: true)

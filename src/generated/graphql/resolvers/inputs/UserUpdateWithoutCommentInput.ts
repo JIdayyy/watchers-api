@@ -4,6 +4,7 @@ import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { BoolFieldUpdateOperationsInput } from "../inputs/BoolFieldUpdateOperationsInput";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
+import { LikeUpdateManyWithoutUserInput } from "../inputs/LikeUpdateManyWithoutUserInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
 import { PostUpdateManyWithoutAuthorInput } from "../inputs/PostUpdateManyWithoutAuthorInput";
 import { ReplyUpdateManyWithoutAuthorInput } from "../inputs/ReplyUpdateManyWithoutAuthorInput";
@@ -84,4 +85,9 @@ export class UserUpdateWithoutCommentInput {
     nullable: true
   })
   nickname?: StringFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => LikeUpdateManyWithoutUserInput, {
+    nullable: true
+  })
+  Like?: LikeUpdateManyWithoutUserInput | undefined;
 }

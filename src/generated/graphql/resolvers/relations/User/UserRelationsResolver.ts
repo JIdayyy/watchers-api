@@ -1,10 +1,12 @@
 import * as TypeGraphQL from "type-graphql";
 import { Comment } from "../../../models/Comment";
+import { Like } from "../../../models/Like";
 import { Post } from "../../../models/Post";
 import { Reply } from "../../../models/Reply";
 import { ResetPassword } from "../../../models/ResetPassword";
 import { User } from "../../../models/User";
 import { UserCommentArgs } from "./args/UserCommentArgs";
+import { UserLikeArgs } from "./args/UserLikeArgs";
 import { UserPostArgs } from "./args/UserPostArgs";
 import { UserReplyArgs } from "./args/UserReplyArgs";
 import { UserResetPasswordArgs } from "./args/UserResetPasswordArgs";
@@ -54,5 +56,16 @@ export class UserRelationsResolver {
         id: user.id,
       },
     }).Reply(args);
+  }
+
+  @TypeGraphQL.FieldResolver(_type => [Like], {
+    nullable: false
+  })
+  async Like(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserLikeArgs): Promise<Like[]> {
+    return getPrismaFromContext(ctx).user.findUnique({
+      where: {
+        id: user.id,
+      },
+    }).Like(args);
   }
 }

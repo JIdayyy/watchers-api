@@ -4,6 +4,7 @@ import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { CommentRelationFilter } from "../inputs/CommentRelationFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
+import { LikeListRelationFilter } from "../inputs/LikeListRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
 import { UserRelationFilter } from "../inputs/UserRelationFilter";
@@ -71,4 +72,9 @@ export class ReplyWhereInput {
     nullable: true
   })
   commentId?: StringFilter | undefined;
+
+  @TypeGraphQL.Field(_type => LikeListRelationFilter, {
+    nullable: true
+  })
+  Like?: LikeListRelationFilter | undefined;
 }

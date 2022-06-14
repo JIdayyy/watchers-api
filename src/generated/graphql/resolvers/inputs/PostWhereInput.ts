@@ -6,6 +6,7 @@ import { BoolFilter } from "../inputs/BoolFilter";
 import { CategoryRelationFilter } from "../inputs/CategoryRelationFilter";
 import { CommentListRelationFilter } from "../inputs/CommentListRelationFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
+import { LikeListRelationFilter } from "../inputs/LikeListRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
 import { TagListRelationFilter } from "../inputs/TagListRelationFilter";
@@ -99,4 +100,9 @@ export class PostWhereInput {
     nullable: true
   })
   Comment?: CommentListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => LikeListRelationFilter, {
+    nullable: true
+  })
+  Like?: LikeListRelationFilter | undefined;
 }

@@ -1,5 +1,6 @@
 export { CategoryScalarFieldEnum } from "./CategoryScalarFieldEnum";
 export { CommentScalarFieldEnum } from "./CommentScalarFieldEnum";
+export { LikeScalarFieldEnum } from "./LikeScalarFieldEnum";
 export { PostScalarFieldEnum } from "./PostScalarFieldEnum";
 export { QueryMode } from "./QueryMode";
 export { ReplyScalarFieldEnum } from "./ReplyScalarFieldEnum";

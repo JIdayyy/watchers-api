@@ -1,3 +1,4 @@
+import { customFieldResolvers } from './custom_resolvers/Fields/index';
 import { ApolloServer, ExpressContext } from 'apollo-server-express';
 import {
   ApolloServerPluginLandingPageGraphQLPlayground,
@@ -22,7 +23,7 @@ const createServer = async (): Promise<ApolloServer<ExpressContext>> => {
   });
 
   const schema = await buildSchema({
-    resolvers: [...resolvers, ...customResolvers],
+    resolvers: [...resolvers, ...customResolvers, ...customFieldResolvers],
     validate: false,
     authChecker: customAuthChecker,
   });

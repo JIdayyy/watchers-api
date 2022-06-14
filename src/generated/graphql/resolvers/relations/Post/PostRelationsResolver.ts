@@ -1,10 +1,12 @@
 import * as TypeGraphQL from "type-graphql";
 import { Category } from "../../../models/Category";
 import { Comment } from "../../../models/Comment";
+import { Like } from "../../../models/Like";
 import { Post } from "../../../models/Post";
 import { Tag } from "../../../models/Tag";
 import { User } from "../../../models/User";
 import { PostCommentArgs } from "./args/PostCommentArgs";
+import { PostLikeArgs } from "./args/PostLikeArgs";
 import { PostTagsArgs } from "./args/PostTagsArgs";
 import { transformFields, getPrismaFromContext, transformCountFieldIntoSelectRelationsCount } from "../../../helpers";
 
@@ -52,5 +54,16 @@ export class PostRelationsResolver {
         id: post.id,
       },
     }).Comment(args);
+  }
+
+  @TypeGraphQL.FieldResolver(_type => [Like], {
+    nullable: false
+  })
+  async Like(@TypeGraphQL.Root() post: Post, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: PostLikeArgs): Promise<Like[]> {
+    return getPrismaFromContext(ctx).post.findUnique({
+      where: {
+        id: post.id,
+      },
+    }).Like(args);
   }
 }

@@ -16,4 +16,9 @@ export class PostCount {
     nullable: false
   })
   Comment!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
+  Like!: number;
 }

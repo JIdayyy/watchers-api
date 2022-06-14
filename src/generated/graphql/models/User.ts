@@ -3,6 +3,7 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
 import { Comment } from "../models/Comment";
+import { Like } from "../models/Like";
 import { Post } from "../models/Post";
 import { Reply } from "../models/Reply";
 import { ResetPassword } from "../models/ResetPassword";
@@ -72,6 +73,8 @@ export class User {
     nullable: false
   })
   nickname!: string;
+
+  Like?: Like[];
 
   @TypeGraphQL.Field(_type => UserCount, {
     nullable: true

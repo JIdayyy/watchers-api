@@ -3,6 +3,7 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
+import { LikeUpdateManyWithoutReplyInput } from "../inputs/LikeUpdateManyWithoutReplyInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 import { UserUpdateOneRequiredWithoutReplyInput } from "../inputs/UserUpdateOneRequiredWithoutReplyInput";
@@ -40,4 +41,9 @@ export class ReplyUpdateWithoutCommentInput {
     nullable: true
   })
   updated_at?: DateTimeFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => LikeUpdateManyWithoutReplyInput, {
+    nullable: true
+  })
+  Like?: LikeUpdateManyWithoutReplyInput | undefined;
 }

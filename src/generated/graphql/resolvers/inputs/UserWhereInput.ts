@@ -6,6 +6,7 @@ import { BoolFilter } from "../inputs/BoolFilter";
 import { CommentListRelationFilter } from "../inputs/CommentListRelationFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { EnumRoleNullableListFilter } from "../inputs/EnumRoleNullableListFilter";
+import { LikeListRelationFilter } from "../inputs/LikeListRelationFilter";
 import { PostListRelationFilter } from "../inputs/PostListRelationFilter";
 import { ReplyListRelationFilter } from "../inputs/ReplyListRelationFilter";
 import { ResetPasswordListRelationFilter } from "../inputs/ResetPasswordListRelationFilter";
@@ -105,4 +106,9 @@ export class UserWhereInput {
     nullable: true
   })
   nickname?: StringFilter | undefined;
+
+  @TypeGraphQL.Field(_type => LikeListRelationFilter, {
+    nullable: true
+  })
+  Like?: LikeListRelationFilter | undefined;
 }

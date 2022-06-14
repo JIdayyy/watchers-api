@@ -1,0 +1,1 @@
+export { CommentCountResolver } from './CommentCount';

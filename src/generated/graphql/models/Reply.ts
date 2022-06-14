@@ -3,7 +3,9 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
 import { Comment } from "../models/Comment";
+import { Like } from "../models/Like";
 import { User } from "../models/User";
+import { ReplyCount } from "../resolvers/outputs/ReplyCount";
 
 @TypeGraphQL.ObjectType("Reply", {
   isAbstract: true
@@ -47,4 +49,11 @@ export class Reply {
     nullable: false
   })
   commentId!: string;
+
+  Like?: Like[];
+
+  @TypeGraphQL.Field(_type => ReplyCount, {
+    nullable: true
+  })
+  _count?: ReplyCount | null;
 }

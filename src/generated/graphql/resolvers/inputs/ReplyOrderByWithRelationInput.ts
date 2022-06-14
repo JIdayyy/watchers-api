@@ -3,6 +3,7 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { CommentOrderByWithRelationInput } from "../inputs/CommentOrderByWithRelationInput";
+import { LikeOrderByRelationAggregateInput } from "../inputs/LikeOrderByRelationAggregateInput";
 import { UserOrderByWithRelationInput } from "../inputs/UserOrderByWithRelationInput";
 import { SortOrder } from "../../enums/SortOrder";
 
@@ -54,4 +55,9 @@ export class ReplyOrderByWithRelationInput {
     nullable: true
   })
   commentId?: "asc" | "desc" | undefined;
+
+  @TypeGraphQL.Field(_type => LikeOrderByRelationAggregateInput, {
+    nullable: true
+  })
+  Like?: LikeOrderByRelationAggregateInput | undefined;
 }

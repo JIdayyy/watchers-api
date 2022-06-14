@@ -5,6 +5,7 @@ import { DecimalJSScalar } from "../../scalars";
 import { BoolFieldUpdateOperationsInput } from "../inputs/BoolFieldUpdateOperationsInput";
 import { CategoryUpdateOneWithoutPostInput } from "../inputs/CategoryUpdateOneWithoutPostInput";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
+import { LikeUpdateManyWithoutPostInput } from "../inputs/LikeUpdateManyWithoutPostInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 import { TagUpdateManyWithoutPostInput } from "../inputs/TagUpdateManyWithoutPostInput";
@@ -68,4 +69,9 @@ export class PostUpdateWithoutCommentInput {
     nullable: true
   })
   Tags?: TagUpdateManyWithoutPostInput | undefined;
+
+  @TypeGraphQL.Field(_type => LikeUpdateManyWithoutPostInput, {
+    nullable: true
+  })
+  Like?: LikeUpdateManyWithoutPostInput | undefined;
 }
