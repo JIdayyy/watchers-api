@@ -8,7 +8,6 @@ import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdat
 import { LikeUpdateManyWithoutUserInput } from "../inputs/LikeUpdateManyWithoutUserInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
 import { PostUpdateManyWithoutAuthorInput } from "../inputs/PostUpdateManyWithoutAuthorInput";
-import { ReplyUpdateManyWithoutAuthorInput } from "../inputs/ReplyUpdateManyWithoutAuthorInput";
 import { ResetPasswordUpdateManyWithoutUserInput } from "../inputs/ResetPasswordUpdateManyWithoutUserInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 import { UserUpdateroleInput } from "../inputs/UserUpdateroleInput";
@@ -81,11 +80,6 @@ export class UserUpdateInput {
     nullable: true
   })
   Comment?: CommentUpdateManyWithoutAuthorInput | undefined;
-
-  @TypeGraphQL.Field(_type => ReplyUpdateManyWithoutAuthorInput, {
-    nullable: true
-  })
-  Reply?: ReplyUpdateManyWithoutAuthorInput | undefined;
 
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true

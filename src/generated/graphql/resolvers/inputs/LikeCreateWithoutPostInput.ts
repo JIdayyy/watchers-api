@@ -2,7 +2,6 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { ReplyCreateNestedOneWithoutLikeInput } from "../inputs/ReplyCreateNestedOneWithoutLikeInput";
 import { UserCreateNestedOneWithoutLikeInput } from "../inputs/UserCreateNestedOneWithoutLikeInput";
 
 @TypeGraphQL.InputType("LikeCreateWithoutPostInput", {
@@ -18,9 +17,4 @@ export class LikeCreateWithoutPostInput {
     nullable: false
   })
   user!: UserCreateNestedOneWithoutLikeInput;
-
-  @TypeGraphQL.Field(_type => ReplyCreateNestedOneWithoutLikeInput, {
-    nullable: true
-  })
-  reply?: ReplyCreateNestedOneWithoutLikeInput | undefined;
 }

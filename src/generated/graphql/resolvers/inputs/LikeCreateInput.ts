@@ -3,7 +3,6 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { PostCreateNestedOneWithoutLikeInput } from "../inputs/PostCreateNestedOneWithoutLikeInput";
-import { ReplyCreateNestedOneWithoutLikeInput } from "../inputs/ReplyCreateNestedOneWithoutLikeInput";
 import { UserCreateNestedOneWithoutLikeInput } from "../inputs/UserCreateNestedOneWithoutLikeInput";
 
 @TypeGraphQL.InputType("LikeCreateInput", {
@@ -24,9 +23,4 @@ export class LikeCreateInput {
     nullable: false
   })
   user!: UserCreateNestedOneWithoutLikeInput;
-
-  @TypeGraphQL.Field(_type => ReplyCreateNestedOneWithoutLikeInput, {
-    nullable: true
-  })
-  reply?: ReplyCreateNestedOneWithoutLikeInput | undefined;
 }

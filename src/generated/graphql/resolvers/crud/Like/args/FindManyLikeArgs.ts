@@ -35,5 +35,5 @@ export class FindManyLikeArgs {
   @TypeGraphQL.Field(_type => [LikeScalarFieldEnum], {
     nullable: true
   })
-  distinct?: Array<"id" | "post_id" | "user_id" | "reply_id"> | undefined;
+  distinct?: Array<"id" | "post_id" | "user_id"> | undefined;
 }

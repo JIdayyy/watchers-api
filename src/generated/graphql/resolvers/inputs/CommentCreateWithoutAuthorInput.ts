@@ -2,8 +2,9 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
+import { CommentCreateNestedManyWithoutRepliesInput } from "../inputs/CommentCreateNestedManyWithoutRepliesInput";
+import { CommentCreateNestedManyWithoutRepliesRelationInput } from "../inputs/CommentCreateNestedManyWithoutRepliesRelationInput";
 import { PostCreateNestedOneWithoutCommentInput } from "../inputs/PostCreateNestedOneWithoutCommentInput";
-import { ReplyCreateNestedManyWithoutCommentInput } from "../inputs/ReplyCreateNestedManyWithoutCommentInput";
 
 @TypeGraphQL.InputType("CommentCreateWithoutAuthorInput", {
   isAbstract: true
@@ -39,8 +40,18 @@ export class CommentCreateWithoutAuthorInput {
   })
   Post!: PostCreateNestedOneWithoutCommentInput;
 
-  @TypeGraphQL.Field(_type => ReplyCreateNestedManyWithoutCommentInput, {
+  @TypeGraphQL.Field(_type => CommentCreateNestedManyWithoutRepliesRelationInput, {
     nullable: true
   })
-  Reply?: ReplyCreateNestedManyWithoutCommentInput | undefined;
+  replies?: CommentCreateNestedManyWithoutRepliesRelationInput | undefined;
+
+  @TypeGraphQL.Field(_type => CommentCreateNestedManyWithoutRepliesInput, {
+    nullable: true
+  })
+  repliesRelation?: CommentCreateNestedManyWithoutRepliesInput | undefined;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  parent_id?: string | undefined;
 }

@@ -38,9 +38,4 @@ export class LikeScalarWhereWithAggregatesInput {
     nullable: true
   })
   user_id?: StringWithAggregatesFilter | undefined;
-
-  @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
-    nullable: true
-  })
-  reply_id?: StringNullableWithAggregatesFilter | undefined;
 }

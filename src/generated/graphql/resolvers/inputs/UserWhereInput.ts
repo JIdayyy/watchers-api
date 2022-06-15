@@ -8,7 +8,6 @@ import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { EnumRoleNullableListFilter } from "../inputs/EnumRoleNullableListFilter";
 import { LikeListRelationFilter } from "../inputs/LikeListRelationFilter";
 import { PostListRelationFilter } from "../inputs/PostListRelationFilter";
-import { ReplyListRelationFilter } from "../inputs/ReplyListRelationFilter";
 import { ResetPasswordListRelationFilter } from "../inputs/ResetPasswordListRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
@@ -96,11 +95,6 @@ export class UserWhereInput {
     nullable: true
   })
   Comment?: CommentListRelationFilter | undefined;
-
-  @TypeGraphQL.Field(_type => ReplyListRelationFilter, {
-    nullable: true
-  })
-  Reply?: ReplyListRelationFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true

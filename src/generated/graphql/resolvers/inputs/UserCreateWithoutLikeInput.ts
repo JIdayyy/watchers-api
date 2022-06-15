@@ -4,7 +4,6 @@ import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { CommentCreateNestedManyWithoutAuthorInput } from "../inputs/CommentCreateNestedManyWithoutAuthorInput";
 import { PostCreateNestedManyWithoutAuthorInput } from "../inputs/PostCreateNestedManyWithoutAuthorInput";
-import { ReplyCreateNestedManyWithoutAuthorInput } from "../inputs/ReplyCreateNestedManyWithoutAuthorInput";
 import { ResetPasswordCreateNestedManyWithoutUserInput } from "../inputs/ResetPasswordCreateNestedManyWithoutUserInput";
 import { UserCreateroleInput } from "../inputs/UserCreateroleInput";
 
@@ -76,11 +75,6 @@ export class UserCreateWithoutLikeInput {
     nullable: true
   })
   Comment?: CommentCreateNestedManyWithoutAuthorInput | undefined;
-
-  @TypeGraphQL.Field(_type => ReplyCreateNestedManyWithoutAuthorInput, {
-    nullable: true
-  })
-  Reply?: ReplyCreateNestedManyWithoutAuthorInput | undefined;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false

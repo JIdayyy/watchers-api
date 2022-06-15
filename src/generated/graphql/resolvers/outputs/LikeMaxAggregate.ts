@@ -21,9 +21,4 @@ export class LikeMaxAggregate {
     nullable: true
   })
   user_id!: string | null;
-
-  @TypeGraphQL.Field(_type => String, {
-    nullable: true
-  })
-  reply_id!: string | null;
 }

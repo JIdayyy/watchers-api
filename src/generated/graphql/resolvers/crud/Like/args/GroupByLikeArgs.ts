@@ -20,7 +20,7 @@ export class GroupByLikeArgs {
   @TypeGraphQL.Field(_type => [LikeScalarFieldEnum], {
     nullable: false
   })
-  by!: Array<"id" | "post_id" | "user_id" | "reply_id">;
+  by!: Array<"id" | "post_id" | "user_id">;
 
   @TypeGraphQL.Field(_type => LikeScalarWhereWithAggregatesInput, {
     nullable: true

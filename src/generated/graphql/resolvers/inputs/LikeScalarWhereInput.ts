@@ -38,9 +38,4 @@ export class LikeScalarWhereInput {
     nullable: true
   })
   user_id?: StringFilter | undefined;
-
-  @TypeGraphQL.Field(_type => StringNullableFilter, {
-    nullable: true
-  })
-  reply_id?: StringNullableFilter | undefined;
 }

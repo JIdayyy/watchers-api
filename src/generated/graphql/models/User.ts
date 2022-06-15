@@ -5,7 +5,6 @@ import { DecimalJSScalar } from "../scalars";
 import { Comment } from "../models/Comment";
 import { Like } from "../models/Like";
 import { Post } from "../models/Post";
-import { Reply } from "../models/Reply";
 import { ResetPassword } from "../models/ResetPassword";
 import { Role } from "../enums/Role";
 import { UserCount } from "../resolvers/outputs/UserCount";
@@ -66,8 +65,6 @@ export class User {
   Post?: Post[];
 
   Comment?: Comment[];
-
-  Reply?: Reply[];
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false

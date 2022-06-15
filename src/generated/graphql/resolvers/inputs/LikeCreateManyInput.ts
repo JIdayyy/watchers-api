@@ -21,9 +21,4 @@ export class LikeCreateManyInput {
     nullable: false
   })
   user_id!: string;
-
-  @TypeGraphQL.Field(_type => String, {
-    nullable: true
-  })
-  reply_id?: string | undefined;
 }

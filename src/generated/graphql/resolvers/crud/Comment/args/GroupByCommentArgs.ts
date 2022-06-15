@@ -20,7 +20,7 @@ export class GroupByCommentArgs {
   @TypeGraphQL.Field(_type => [CommentScalarFieldEnum], {
     nullable: false
   })
-  by!: Array<"id" | "picture" | "content" | "created_at" | "updated_at" | "userId" | "postSlug">;
+  by!: Array<"id" | "picture" | "content" | "created_at" | "updated_at" | "userId" | "postSlug" | "parent_id">;
 
   @TypeGraphQL.Field(_type => CommentScalarWhereWithAggregatesInput, {
     nullable: true

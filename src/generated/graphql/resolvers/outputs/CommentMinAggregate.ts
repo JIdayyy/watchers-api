@@ -41,4 +41,9 @@ export class CommentMinAggregate {
     nullable: true
   })
   postSlug!: string | null;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  parent_id!: string | null;
 }

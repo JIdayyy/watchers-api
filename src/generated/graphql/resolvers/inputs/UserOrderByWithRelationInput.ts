@@ -5,7 +5,6 @@ import { DecimalJSScalar } from "../../scalars";
 import { CommentOrderByRelationAggregateInput } from "../inputs/CommentOrderByRelationAggregateInput";
 import { LikeOrderByRelationAggregateInput } from "../inputs/LikeOrderByRelationAggregateInput";
 import { PostOrderByRelationAggregateInput } from "../inputs/PostOrderByRelationAggregateInput";
-import { ReplyOrderByRelationAggregateInput } from "../inputs/ReplyOrderByRelationAggregateInput";
 import { ResetPasswordOrderByRelationAggregateInput } from "../inputs/ResetPasswordOrderByRelationAggregateInput";
 import { SortOrder } from "../../enums/SortOrder";
 
@@ -77,11 +76,6 @@ export class UserOrderByWithRelationInput {
     nullable: true
   })
   Comment?: CommentOrderByRelationAggregateInput | undefined;
-
-  @TypeGraphQL.Field(_type => ReplyOrderByRelationAggregateInput, {
-    nullable: true
-  })
-  Reply?: ReplyOrderByRelationAggregateInput | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true

@@ -3,7 +3,6 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { PostRelationFilter } from "../inputs/PostRelationFilter";
-import { ReplyRelationFilter } from "../inputs/ReplyRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
 import { UserRelationFilter } from "../inputs/UserRelationFilter";
@@ -51,14 +50,4 @@ export class LikeWhereInput {
     nullable: true
   })
   user?: UserRelationFilter | undefined;
-
-  @TypeGraphQL.Field(_type => ReplyRelationFilter, {
-    nullable: true
-  })
-  reply?: ReplyRelationFilter | undefined;
-
-  @TypeGraphQL.Field(_type => StringNullableFilter, {
-    nullable: true
-  })
-  reply_id?: StringNullableFilter | undefined;
 }

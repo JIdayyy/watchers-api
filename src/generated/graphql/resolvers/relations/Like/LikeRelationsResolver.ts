@@ -1,7 +1,6 @@
 import * as TypeGraphQL from "type-graphql";
 import { Like } from "../../../models/Like";
 import { Post } from "../../../models/Post";
-import { Reply } from "../../../models/Reply";
 import { User } from "../../../models/User";
 import { transformFields, getPrismaFromContext, transformCountFieldIntoSelectRelationsCount } from "../../../helpers";
 
@@ -27,16 +26,5 @@ export class LikeRelationsResolver {
         id: like.id,
       },
     }).user({});
-  }
-
-  @TypeGraphQL.FieldResolver(_type => Reply, {
-    nullable: true
-  })
-  async reply(@TypeGraphQL.Root() like: Like, @TypeGraphQL.Ctx() ctx: any): Promise<Reply | null> {
-    return getPrismaFromContext(ctx).like.findUnique({
-      where: {
-        id: like.id,
-      },
-    }).reply({});
   }
 }

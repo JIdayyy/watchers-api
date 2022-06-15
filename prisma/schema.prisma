@@ -61,18 +61,18 @@ model Like {
 }
 
 model Comment {
-  id         String    @id @default(uuid())
-  picture    String?
-  content    String
-  author     User      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  created_at DateTime  @default(now())
-  updated_at DateTime  @updatedAt
-  userId     String
-  Post       Post      @relation(fields: [postSlug], references: [slug], onDelete: Cascade, onUpdate: Cascade)
-  postSlug   String
-  reply      Comment[] @relation("comment_reply")
-  parent     Comment   @relation("comment_reply", fields: [parent_id], references: [id])
-  parent_id  String
+  id              String    @id @default(uuid())
+  picture         String?
+  content         String
+  author          User      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  created_at      DateTime  @default(now())
+  updated_at      DateTime  @updatedAt
+  userId          String
+  Post            Post      @relation(fields: [postSlug], references: [slug], onDelete: Cascade, onUpdate: Cascade)
+  postSlug        String
+  replies         Comment[] @relation("reply")
+  repliesRelation Comment[] @relation("reply")
+  parent_id       String?
 }
 
 model Tag {

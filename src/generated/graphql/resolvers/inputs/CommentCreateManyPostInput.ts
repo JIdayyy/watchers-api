@@ -36,4 +36,9 @@ export class CommentCreateManyPostInput {
     nullable: false
   })
   userId!: string;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  parent_id?: string | undefined;
 }

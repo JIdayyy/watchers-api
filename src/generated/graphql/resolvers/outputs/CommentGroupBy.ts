@@ -45,6 +45,11 @@ export class CommentGroupBy {
   })
   postSlug!: string;
 
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  parent_id!: string | null;
+
   @TypeGraphQL.Field(_type => CommentCountAggregate, {
     nullable: true
   })

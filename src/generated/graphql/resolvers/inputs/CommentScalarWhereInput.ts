@@ -59,4 +59,9 @@ export class CommentScalarWhereInput {
     nullable: true
   })
   postSlug?: StringFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringNullableFilter, {
+    nullable: true
+  })
+  parent_id?: StringNullableFilter | undefined;
 }

@@ -1,1 +1,2 @@
-export { CommentReplyArgs } from "./CommentReplyArgs";
+export { CommentRepliesArgs } from "./CommentRepliesArgs";
+export { CommentRepliesRelationArgs } from "./CommentRepliesRelationArgs";

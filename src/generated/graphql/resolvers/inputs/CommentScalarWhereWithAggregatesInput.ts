@@ -59,4 +59,9 @@ export class CommentScalarWhereWithAggregatesInput {
     nullable: true
   })
   postSlug?: StringWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
+    nullable: true
+  })
+  parent_id?: StringNullableWithAggregatesFilter | undefined;
 }

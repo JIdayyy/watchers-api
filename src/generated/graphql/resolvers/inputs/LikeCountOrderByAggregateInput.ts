@@ -22,9 +22,4 @@ export class LikeCountOrderByAggregateInput {
     nullable: true
   })
   user_id?: "asc" | "desc" | undefined;
-
-  @TypeGraphQL.Field(_type => SortOrder, {
-    nullable: true
-  })
-  reply_id?: "asc" | "desc" | undefined;
 }

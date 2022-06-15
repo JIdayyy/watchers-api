@@ -3,7 +3,6 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { PostUpdateOneWithoutLikeInput } from "../inputs/PostUpdateOneWithoutLikeInput";
-import { ReplyUpdateOneWithoutLikeInput } from "../inputs/ReplyUpdateOneWithoutLikeInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 import { UserUpdateOneRequiredWithoutLikeInput } from "../inputs/UserUpdateOneRequiredWithoutLikeInput";
 
@@ -25,9 +24,4 @@ export class LikeUpdateInput {
     nullable: true
   })
   user?: UserUpdateOneRequiredWithoutLikeInput | undefined;
-
-  @TypeGraphQL.Field(_type => ReplyUpdateOneWithoutLikeInput, {
-    nullable: true
-  })
-  reply?: ReplyUpdateOneWithoutLikeInput | undefined;
 }

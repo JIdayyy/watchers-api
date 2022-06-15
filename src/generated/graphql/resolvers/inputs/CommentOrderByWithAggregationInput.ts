@@ -46,6 +46,11 @@ export class CommentOrderByWithAggregationInput {
   })
   postSlug?: "asc" | "desc" | undefined;
 
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true
+  })
+  parent_id?: "asc" | "desc" | undefined;
+
   @TypeGraphQL.Field(_type => CommentCountOrderByAggregateInput, {
     nullable: true
   })

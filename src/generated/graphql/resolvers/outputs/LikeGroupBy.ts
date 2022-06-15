@@ -25,11 +25,6 @@ export class LikeGroupBy {
   })
   user_id!: string;
 
-  @TypeGraphQL.Field(_type => String, {
-    nullable: true
-  })
-  reply_id!: string | null;
-
   @TypeGraphQL.Field(_type => LikeCountAggregate, {
     nullable: true
   })

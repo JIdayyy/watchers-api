@@ -3,7 +3,6 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
 import { Post } from "../models/Post";
-import { Reply } from "../models/Reply";
 import { User } from "../models/User";
 import { CommentCount } from "../resolvers/outputs/CommentCount";
 
@@ -50,7 +49,14 @@ export class Comment {
   })
   postSlug!: string;
 
-  Reply?: Reply[];
+  replies?: Comment[];
+
+  repliesRelation?: Comment[];
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  parent_id?: string | null;
 
   @TypeGraphQL.Field(_type => CommentCount, {
     nullable: true

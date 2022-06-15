@@ -3,7 +3,6 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
 import { Post } from "../models/Post";
-import { Reply } from "../models/Reply";
 import { User } from "../models/User";
 
 @TypeGraphQL.ObjectType("Like", {
@@ -28,11 +27,4 @@ export class Like {
   user_id!: string;
 
   user?: User;
-
-  reply?: Reply | null;
-
-  @TypeGraphQL.Field(_type => String, {
-    nullable: true
-  })
-  reply_id?: string | null;
 }
