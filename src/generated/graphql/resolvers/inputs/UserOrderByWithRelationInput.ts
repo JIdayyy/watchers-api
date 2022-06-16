@@ -5,6 +5,7 @@ import { DecimalJSScalar } from "../../scalars";
 import { CommentOrderByRelationAggregateInput } from "../inputs/CommentOrderByRelationAggregateInput";
 import { LikeOrderByRelationAggregateInput } from "../inputs/LikeOrderByRelationAggregateInput";
 import { PostOrderByRelationAggregateInput } from "../inputs/PostOrderByRelationAggregateInput";
+import { PreferenceOrderByWithRelationInput } from "../inputs/PreferenceOrderByWithRelationInput";
 import { ResetPasswordOrderByRelationAggregateInput } from "../inputs/ResetPasswordOrderByRelationAggregateInput";
 import { SortOrder } from "../../enums/SortOrder";
 
@@ -86,4 +87,9 @@ export class UserOrderByWithRelationInput {
     nullable: true
   })
   Like?: LikeOrderByRelationAggregateInput | undefined;
+
+  @TypeGraphQL.Field(_type => PreferenceOrderByWithRelationInput, {
+    nullable: true
+  })
+  Preference?: PreferenceOrderByWithRelationInput | undefined;
 }

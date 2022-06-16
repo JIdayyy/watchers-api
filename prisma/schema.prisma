@@ -32,6 +32,24 @@ model User {
   Comment       Comment[]
   nickname      String          @unique
   Like          Like[]
+  Preference    Preference?
+}
+
+model Preference {
+  id         String   @id @default(uuid())
+  showEmail  Boolean  @default(true)
+  website    String?
+  location   String?
+  skills     String?
+  job        String?
+  education  String?
+  bio        String?
+  color_1    String?
+  color_2    String?
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  User       User     @relation(fields: [userId], references: [id])
+  userId     String   @unique
 }
 
 model Post {
