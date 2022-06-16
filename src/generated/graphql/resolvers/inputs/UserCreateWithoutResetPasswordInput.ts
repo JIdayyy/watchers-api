@@ -5,6 +5,7 @@ import { DecimalJSScalar } from "../../scalars";
 import { CommentCreateNestedManyWithoutAuthorInput } from "../inputs/CommentCreateNestedManyWithoutAuthorInput";
 import { LikeCreateNestedManyWithoutUserInput } from "../inputs/LikeCreateNestedManyWithoutUserInput";
 import { PostCreateNestedManyWithoutAuthorInput } from "../inputs/PostCreateNestedManyWithoutAuthorInput";
+import { PreferenceCreateNestedOneWithoutUserInput } from "../inputs/PreferenceCreateNestedOneWithoutUserInput";
 import { UserCreateroleInput } from "../inputs/UserCreateroleInput";
 
 @TypeGraphQL.InputType("UserCreateWithoutResetPasswordInput", {
@@ -80,4 +81,9 @@ export class UserCreateWithoutResetPasswordInput {
     nullable: true
   })
   Like?: LikeCreateNestedManyWithoutUserInput | undefined;
+
+  @TypeGraphQL.Field(_type => PreferenceCreateNestedOneWithoutUserInput, {
+    nullable: true
+  })
+  Preference?: PreferenceCreateNestedOneWithoutUserInput | undefined;
 }

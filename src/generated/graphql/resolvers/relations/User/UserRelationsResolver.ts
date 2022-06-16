@@ -2,6 +2,7 @@ import * as TypeGraphQL from "type-graphql";
 import { Comment } from "../../../models/Comment";
 import { Like } from "../../../models/Like";
 import { Post } from "../../../models/Post";
+import { Preference } from "../../../models/Preference";
 import { ResetPassword } from "../../../models/ResetPassword";
 import { User } from "../../../models/User";
 import { UserCommentArgs } from "./args/UserCommentArgs";
@@ -54,5 +55,16 @@ export class UserRelationsResolver {
         id: user.id,
       },
     }).Like(args);
+  }
+
+  @TypeGraphQL.FieldResolver(_type => Preference, {
+    nullable: true
+  })
+  async Preference(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any): Promise<Preference | null> {
+    return getPrismaFromContext(ctx).user.findUnique({
+      where: {
+        id: user.id,
+      },
+    }).Preference({});
   }
 }

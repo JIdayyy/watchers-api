@@ -5,6 +5,7 @@ import { DecimalJSScalar } from "../scalars";
 import { Comment } from "../models/Comment";
 import { Like } from "../models/Like";
 import { Post } from "../models/Post";
+import { Preference } from "../models/Preference";
 import { ResetPassword } from "../models/ResetPassword";
 import { Role } from "../enums/Role";
 import { UserCount } from "../resolvers/outputs/UserCount";
@@ -72,6 +73,8 @@ export class User {
   nickname!: string;
 
   Like?: Like[];
+
+  Preference?: Preference | null;
 
   @TypeGraphQL.Field(_type => UserCount, {
     nullable: true
