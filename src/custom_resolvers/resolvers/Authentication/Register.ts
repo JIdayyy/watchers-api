@@ -30,6 +30,9 @@ export class RegisterResolver {
         password: hashedPassword,
         is_disabled: false,
         role: [Role.USER],
+        Preference: {
+          create: {},
+        },
       },
     });
 
