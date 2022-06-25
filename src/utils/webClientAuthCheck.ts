@@ -17,8 +17,8 @@ const webClientAuthCheck = async (
   const token = context.req.cookies
     ? context.req.cookies.token
     : cookies.get('token')
-    ? context.req.cookies['next-auth.session-token']
-    : cookies.get('next-auth.session-token');
+    ? context.req.cookies['__Secure-next-auth.session-token']
+    : cookies.get('__Secure-next-auth.session-token');
 
   const nextCookie = context.req.cookies
     ? context.req.cookies['next-auth.session-token']

@@ -19,7 +19,7 @@ const loginJWTCookies = async (
       email: data.email,
     },
   });
-  console.log(data);
+
   if (!user) throw new Error("User doesn't exist");
 
   checkPassword(data.password, user.password as string, ctx);
