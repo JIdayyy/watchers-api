@@ -11,7 +11,6 @@ export class CommentCountResolver {
     @Root() post: Post,
     @Ctx() { prisma }: GQLContext
   ): Promise<{ count: number }> {
-    console.log(post.id);
     const commentCount = await prisma.comment.count({
       where: {
         Post: {

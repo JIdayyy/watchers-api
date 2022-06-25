@@ -26,4 +26,14 @@ export class UserCount {
     nullable: false
   })
   Like!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
+  Account!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
+  Session!: number;
 }

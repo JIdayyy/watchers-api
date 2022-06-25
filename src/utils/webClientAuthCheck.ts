@@ -13,17 +13,24 @@ const webClientAuthCheck = async (
   roles: string[]
 ): Promise<boolean | Error> => {
   const cookies = new Cookies(context.req, context.res);
+
   const token = context.req.cookies
     ? context.req.cookies.token
-    : cookies.get('token');
+    : cookies.get('token')
+    ? context.req.cookies['next-auth.session-token']
+    : cookies.get('next-auth.session-token');
+
+  const nextCookie = context.req.cookies
+    ? context.req.cookies['next-auth.session-token']
+    : cookies.get('next-auth.session-token');
 
   if (!token) throw new ApolloError('U have to be logged in');
 
   const user = verify(token, process.env.JWT_SECRET as string) as JwtPayload;
 
   if (!user) throw new ApolloError('U have to be logged in');
-  console.log(user, roles);
-  if (roles.find((role) => user.role.includes(role))) return true;
+  console.log(roles, user.roles);
+  if (roles.find((role) => user.roles === role)) return true;
 
   throw new ApolloError('Acces denied');
 };

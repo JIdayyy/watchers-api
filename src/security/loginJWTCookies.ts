@@ -19,10 +19,10 @@ const loginJWTCookies = async (
       email: data.email,
     },
   });
-
+  console.log(data);
   if (!user) throw new Error("User doesn't exist");
 
-  checkPassword(data.password, user.password, ctx);
+  checkPassword(data.password, user.password!, ctx);
 
   const token = signToken(user);
   const refreshToken = signRefreshToken(user);

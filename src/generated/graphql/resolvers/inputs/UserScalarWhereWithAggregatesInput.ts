@@ -4,7 +4,7 @@ import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { BoolWithAggregatesFilter } from "../inputs/BoolWithAggregatesFilter";
 import { DateTimeWithAggregatesFilter } from "../inputs/DateTimeWithAggregatesFilter";
-import { EnumRoleNullableListFilter } from "../inputs/EnumRoleNullableListFilter";
+import { EnumRoleWithAggregatesFilter } from "../inputs/EnumRoleWithAggregatesFilter";
 import { StringNullableWithAggregatesFilter } from "../inputs/StringNullableWithAggregatesFilter";
 import { StringWithAggregatesFilter } from "../inputs/StringWithAggregatesFilter";
 
@@ -50,7 +50,22 @@ export class UserScalarWhereWithAggregatesInput {
   @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
     nullable: true
   })
-  password?: StringWithAggregatesFilter | undefined;
+  image?: StringWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
+    nullable: true
+  })
+  emailVerified?: StringNullableWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
+    nullable: true
+  })
+  name?: StringWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
+    nullable: true
+  })
+  password?: StringNullableWithAggregatesFilter | undefined;
 
   @TypeGraphQL.Field(_type => BoolWithAggregatesFilter, {
     nullable: true
@@ -62,10 +77,10 @@ export class UserScalarWhereWithAggregatesInput {
   })
   avatar?: StringNullableWithAggregatesFilter | undefined;
 
-  @TypeGraphQL.Field(_type => EnumRoleNullableListFilter, {
+  @TypeGraphQL.Field(_type => EnumRoleWithAggregatesFilter, {
     nullable: true
   })
-  role?: EnumRoleNullableListFilter | undefined;
+  role?: EnumRoleWithAggregatesFilter | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter, {
     nullable: true

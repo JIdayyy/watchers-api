@@ -2,11 +2,13 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
+import { Account } from "../models/Account";
 import { Comment } from "../models/Comment";
 import { Like } from "../models/Like";
 import { Post } from "../models/Post";
 import { Preference } from "../models/Preference";
 import { ResetPassword } from "../models/ResetPassword";
+import { Session } from "../models/Session";
 import { Role } from "../enums/Role";
 import { UserCount } from "../resolvers/outputs/UserCount";
 
@@ -34,7 +36,22 @@ export class User {
   })
   email!: string;
 
-  password?: string;
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
+  image!: string;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  emailVerified?: string | null;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
+  name!: string;
+
+  password?: string | null;
 
   @TypeGraphQL.Field(_type => Boolean, {
     nullable: false
@@ -46,10 +63,10 @@ export class User {
   })
   avatar?: string | null;
 
-  @TypeGraphQL.Field(_type => [Role], {
+  @TypeGraphQL.Field(_type => Role, {
     nullable: false
   })
-  role!: Array<"SUPER_ADMIN" | "ADMIN" | "MANAGER" | "USER">;
+  role!: "SUPER_ADMIN" | "ADMIN" | "MANAGER" | "USER";
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
@@ -75,6 +92,10 @@ export class User {
   Like?: Like[];
 
   Preference?: Preference | null;
+
+  Account?: Account[];
+
+  Session?: Session[];
 
   @TypeGraphQL.Field(_type => UserCount, {
     nullable: true

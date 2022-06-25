@@ -34,7 +34,22 @@ export class UserGroupBy {
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  password!: string;
+  image!: string;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  emailVerified!: string | null;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
+  name!: string;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  password!: string | null;
 
   @TypeGraphQL.Field(_type => Boolean, {
     nullable: false
@@ -46,10 +61,10 @@ export class UserGroupBy {
   })
   avatar!: string | null;
 
-  @TypeGraphQL.Field(_type => [Role], {
-    nullable: true
+  @TypeGraphQL.Field(_type => Role, {
+    nullable: false
   })
-  role!: Array<"SUPER_ADMIN" | "ADMIN" | "MANAGER" | "USER"> | null;
+  role!: "SUPER_ADMIN" | "ADMIN" | "MANAGER" | "USER";
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: false

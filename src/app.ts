@@ -38,7 +38,6 @@ const corsOptions = {
     origin: string | undefined,
     callback: (err: Error | null, check?: boolean) => Error | void
   ) => {
-    console.log('incoming origin', origin);
     if (process.env.NODE_ENV === 'development') {
       return callback(null, true);
     }
@@ -49,7 +48,6 @@ const corsOptions = {
     if (origin?.split('.').includes('vercel')) {
       return callback(null, true);
     }
-    console.log('blocked origin', origin);
     return callback(new Error('Not allowed by CORS'));
   },
   credentials: true,

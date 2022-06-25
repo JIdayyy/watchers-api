@@ -2,7 +2,7 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { UserCreateroleInput } from "../inputs/UserCreateroleInput";
+import { Role } from "../../enums/Role";
 
 @TypeGraphQL.InputType("UserCreateManyInput", {
   isAbstract: true
@@ -31,22 +31,37 @@ export class UserCreateManyInput {
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  password!: string;
+  image!: string;
 
-  @TypeGraphQL.Field(_type => Boolean, {
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  emailVerified?: string | undefined;
+
+  @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  is_disabled!: boolean;
+  name!: string;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  password?: string | undefined;
+
+  @TypeGraphQL.Field(_type => Boolean, {
+    nullable: true
+  })
+  is_disabled?: boolean | undefined;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
   avatar?: string | undefined;
 
-  @TypeGraphQL.Field(_type => UserCreateroleInput, {
+  @TypeGraphQL.Field(_type => Role, {
     nullable: true
   })
-  role?: UserCreateroleInput | undefined;
+  role?: "SUPER_ADMIN" | "ADMIN" | "MANAGER" | "USER" | undefined;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: true
@@ -59,7 +74,7 @@ export class UserCreateManyInput {
   updated_at?: Date | undefined;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  nickname!: string;
+  nickname?: string | undefined;
 }

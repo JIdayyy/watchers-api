@@ -2,11 +2,13 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
+import { AccountOrderByRelationAggregateInput } from "../inputs/AccountOrderByRelationAggregateInput";
 import { CommentOrderByRelationAggregateInput } from "../inputs/CommentOrderByRelationAggregateInput";
 import { LikeOrderByRelationAggregateInput } from "../inputs/LikeOrderByRelationAggregateInput";
 import { PostOrderByRelationAggregateInput } from "../inputs/PostOrderByRelationAggregateInput";
 import { PreferenceOrderByWithRelationInput } from "../inputs/PreferenceOrderByWithRelationInput";
 import { ResetPasswordOrderByRelationAggregateInput } from "../inputs/ResetPasswordOrderByRelationAggregateInput";
+import { SessionOrderByRelationAggregateInput } from "../inputs/SessionOrderByRelationAggregateInput";
 import { SortOrder } from "../../enums/SortOrder";
 
 @TypeGraphQL.InputType("UserOrderByWithRelationInput", {
@@ -32,6 +34,21 @@ export class UserOrderByWithRelationInput {
     nullable: true
   })
   email?: "asc" | "desc" | undefined;
+
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true
+  })
+  image?: "asc" | "desc" | undefined;
+
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true
+  })
+  emailVerified?: "asc" | "desc" | undefined;
+
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true
+  })
+  name?: "asc" | "desc" | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
@@ -92,4 +109,14 @@ export class UserOrderByWithRelationInput {
     nullable: true
   })
   Preference?: PreferenceOrderByWithRelationInput | undefined;
+
+  @TypeGraphQL.Field(_type => AccountOrderByRelationAggregateInput, {
+    nullable: true
+  })
+  Account?: AccountOrderByRelationAggregateInput | undefined;
+
+  @TypeGraphQL.Field(_type => SessionOrderByRelationAggregateInput, {
+    nullable: true
+  })
+  Session?: SessionOrderByRelationAggregateInput | undefined;
 }

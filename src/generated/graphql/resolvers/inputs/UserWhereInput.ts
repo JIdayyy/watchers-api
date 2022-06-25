@@ -2,14 +2,16 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
+import { AccountListRelationFilter } from "../inputs/AccountListRelationFilter";
 import { BoolFilter } from "../inputs/BoolFilter";
 import { CommentListRelationFilter } from "../inputs/CommentListRelationFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
-import { EnumRoleNullableListFilter } from "../inputs/EnumRoleNullableListFilter";
+import { EnumRoleFilter } from "../inputs/EnumRoleFilter";
 import { LikeListRelationFilter } from "../inputs/LikeListRelationFilter";
 import { PostListRelationFilter } from "../inputs/PostListRelationFilter";
 import { PreferenceRelationFilter } from "../inputs/PreferenceRelationFilter";
 import { ResetPasswordListRelationFilter } from "../inputs/ResetPasswordListRelationFilter";
+import { SessionListRelationFilter } from "../inputs/SessionListRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
 
@@ -55,7 +57,22 @@ export class UserWhereInput {
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  password?: StringFilter | undefined;
+  image?: StringFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringNullableFilter, {
+    nullable: true
+  })
+  emailVerified?: StringNullableFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringFilter, {
+    nullable: true
+  })
+  name?: StringFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringNullableFilter, {
+    nullable: true
+  })
+  password?: StringNullableFilter | undefined;
 
   @TypeGraphQL.Field(_type => BoolFilter, {
     nullable: true
@@ -67,10 +84,10 @@ export class UserWhereInput {
   })
   avatar?: StringNullableFilter | undefined;
 
-  @TypeGraphQL.Field(_type => EnumRoleNullableListFilter, {
+  @TypeGraphQL.Field(_type => EnumRoleFilter, {
     nullable: true
   })
-  role?: EnumRoleNullableListFilter | undefined;
+  role?: EnumRoleFilter | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
@@ -111,4 +128,14 @@ export class UserWhereInput {
     nullable: true
   })
   Preference?: PreferenceRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => AccountListRelationFilter, {
+    nullable: true
+  })
+  Account?: AccountListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => SessionListRelationFilter, {
+    nullable: true
+  })
+  Session?: SessionListRelationFilter | undefined;
 }

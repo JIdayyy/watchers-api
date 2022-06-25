@@ -2,11 +2,13 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
+import { AccountCreateNestedManyWithoutUserInput } from "../inputs/AccountCreateNestedManyWithoutUserInput";
 import { CommentCreateNestedManyWithoutAuthorInput } from "../inputs/CommentCreateNestedManyWithoutAuthorInput";
 import { PostCreateNestedManyWithoutAuthorInput } from "../inputs/PostCreateNestedManyWithoutAuthorInput";
 import { PreferenceCreateNestedOneWithoutUserInput } from "../inputs/PreferenceCreateNestedOneWithoutUserInput";
 import { ResetPasswordCreateNestedManyWithoutUserInput } from "../inputs/ResetPasswordCreateNestedManyWithoutUserInput";
-import { UserCreateroleInput } from "../inputs/UserCreateroleInput";
+import { SessionCreateNestedManyWithoutUserInput } from "../inputs/SessionCreateNestedManyWithoutUserInput";
+import { Role } from "../../enums/Role";
 
 @TypeGraphQL.InputType("UserCreateWithoutLikeInput", {
   isAbstract: true
@@ -35,22 +37,37 @@ export class UserCreateWithoutLikeInput {
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  password!: string;
+  image!: string;
 
-  @TypeGraphQL.Field(_type => Boolean, {
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  emailVerified?: string | undefined;
+
+  @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  is_disabled!: boolean;
+  name!: string;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  password?: string | undefined;
+
+  @TypeGraphQL.Field(_type => Boolean, {
+    nullable: true
+  })
+  is_disabled?: boolean | undefined;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
   avatar?: string | undefined;
 
-  @TypeGraphQL.Field(_type => UserCreateroleInput, {
+  @TypeGraphQL.Field(_type => Role, {
     nullable: true
   })
-  role?: UserCreateroleInput | undefined;
+  role?: "SUPER_ADMIN" | "ADMIN" | "MANAGER" | "USER" | undefined;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: true
@@ -78,12 +95,22 @@ export class UserCreateWithoutLikeInput {
   Comment?: CommentCreateNestedManyWithoutAuthorInput | undefined;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  nickname!: string;
+  nickname?: string | undefined;
 
   @TypeGraphQL.Field(_type => PreferenceCreateNestedOneWithoutUserInput, {
     nullable: true
   })
   Preference?: PreferenceCreateNestedOneWithoutUserInput | undefined;
+
+  @TypeGraphQL.Field(_type => AccountCreateNestedManyWithoutUserInput, {
+    nullable: true
+  })
+  Account?: AccountCreateNestedManyWithoutUserInput | undefined;
+
+  @TypeGraphQL.Field(_type => SessionCreateNestedManyWithoutUserInput, {
+    nullable: true
+  })
+  Session?: SessionCreateNestedManyWithoutUserInput | undefined;
 }

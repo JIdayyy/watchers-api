@@ -26,7 +26,6 @@ const resetPassword: Emailhandler['resetPassword'] = async (req, res) => {
         if (err) {
           return res.status(500).send('invalid token');
         }
-        console.log(decoded);
         return decoded;
       }
     );

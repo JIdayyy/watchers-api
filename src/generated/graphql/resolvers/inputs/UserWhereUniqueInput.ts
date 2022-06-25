@@ -20,5 +20,10 @@ export class UserWhereUniqueInput {
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
+  emailVerified?: string | undefined;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
   nickname?: string | undefined;
 }
