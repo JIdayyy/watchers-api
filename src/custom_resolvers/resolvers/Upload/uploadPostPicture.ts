@@ -18,7 +18,6 @@ export interface Upload {
 
 @Resolver()
 export class UploadPostPicture {
-  @Authorized(Role.SUPER_ADMIN, Role.ADMIN, Role.USER, Role.MANAGER)
   @Mutation(() => Picture)
   async uploadPostPicture(
     @Ctx() ctx: GQLContext,

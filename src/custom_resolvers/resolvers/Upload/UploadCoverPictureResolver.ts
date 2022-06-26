@@ -16,7 +16,6 @@ export interface Upload {
 
 @Resolver()
 export class UploadCoverPicture {
-  @Authorized(Role.SUPER_ADMIN, Role.ADMIN, Role.USER, Role.MANAGER)
   @Mutation(() => Post, {
     nullable: false,
   })

@@ -15,10 +15,8 @@ const webClientAuthCheck = async (
   const cookies = new Cookies(context.req, context.res, {
     secure: process.env.NODE_ENV === 'production',
   });
-  const cookieName =
-    process.env.NODE_ENV === 'production'
-      ? '__Secure-next-auth.session-token'
-      : 'next-auth.session-token';
+
+  const cookieName = 'token';
 
   console.log(cookies.get(cookieName));
 
