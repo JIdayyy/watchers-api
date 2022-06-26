@@ -12,17 +12,19 @@ const webClientAuthCheck = async (
   },
   roles: string[]
 ): Promise<boolean | Error> => {
-  const cookies = new Cookies(context.req, context.res);
+  const cookies = new Cookies(context.req, context.res, {
+    secure: process.env.NODE_ENV === 'production',
+  });
+  const cookieName =
+    process.env.NODE_ENV === 'production'
+      ? '__Secure-next-auth.session-token'
+      : 'next-auth.session-token';
+
+  console.log(cookies.get(cookieName));
 
   const token = context.req.cookies
-    ? context.req.cookies['__Secure-next-auth.session-token']
-    : cookies.get('__Secure-next-auth.session-token');
-
-  const nextCookie = context.req.cookies
-    ? context.req.cookies['__Secure-next-auth.state']
-    : cookies.get('__Secure-next-auth.state');
-
-  console.log(nextCookie);
+    ? context.req.cookies[cookieName]
+    : cookies.get(cookieName);
 
   if (!token) throw new ApolloError('U have to be logged in');
 
