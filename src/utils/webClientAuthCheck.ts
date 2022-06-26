@@ -15,14 +15,14 @@ const webClientAuthCheck = async (
   const cookies = new Cookies(context.req, context.res);
 
   const token = context.req.cookies
-    ? context.req.cookies.token
-    : cookies.get('token')
     ? context.req.cookies['__Secure-next-auth.session-token']
     : cookies.get('__Secure-next-auth.session-token');
 
   const nextCookie = context.req.cookies
-    ? context.req.cookies['next-auth.session-token']
-    : cookies.get('next-auth.session-token');
+    ? context.req.cookies['__Secure-next-auth.state']
+    : cookies.get('__Secure-next-auth.state');
+
+  console.log(nextCookie);
 
   if (!token) throw new ApolloError('U have to be logged in');
 
