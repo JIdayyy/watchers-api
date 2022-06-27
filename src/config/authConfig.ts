@@ -1,3 +1,4 @@
+import { Role } from '../../src/generated/graphql';
 import { Authorized } from 'type-graphql';
 import {
   ResolversEnhanceMap,
@@ -12,7 +13,11 @@ export const restricted = [];
 
 export const unRestricted = [Authorized()];
 
-const resolversEnhanceMap: ResolversEnhanceMap = {};
+const resolversEnhanceMap: ResolversEnhanceMap = {
+  Like: {
+    _all: [Authorized(Role.USER, Role.ADMIN, Role.MANAGER, Role.SUPER_ADMIN)],
+  },
+};
 
 const modelsEnhanceMap: ModelsEnhanceMap = {};
 
