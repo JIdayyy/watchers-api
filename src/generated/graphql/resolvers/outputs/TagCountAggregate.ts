@@ -20,6 +20,11 @@ export class TagCountAggregate {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: false
   })
+  description!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
   created_at!: number;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {

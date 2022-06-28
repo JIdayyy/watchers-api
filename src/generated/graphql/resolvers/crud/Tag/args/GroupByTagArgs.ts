@@ -20,7 +20,7 @@ export class GroupByTagArgs {
   @TypeGraphQL.Field(_type => [TagScalarFieldEnum], {
     nullable: false
   })
-  by!: Array<"id" | "name" | "created_at" | "updated_at">;
+  by!: Array<"id" | "name" | "description" | "created_at" | "updated_at">;
 
   @TypeGraphQL.Field(_type => TagScalarWhereWithAggregatesInput, {
     nullable: true

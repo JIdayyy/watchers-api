@@ -19,6 +19,11 @@ export class Tag {
   })
   name!: string;
 
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  description?: string | null;
+
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
