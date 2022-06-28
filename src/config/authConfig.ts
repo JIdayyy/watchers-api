@@ -1,4 +1,3 @@
-import { Role } from '../../src/generated/graphql';
 import { Authorized } from 'type-graphql';
 import {
   ResolversEnhanceMap,

@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 import { GraphQLUpload } from 'graphql-upload';
-import { Arg, Authorized, Ctx, Mutation, Resolver } from 'type-graphql';
+import { Arg, Ctx, Mutation, Resolver } from 'type-graphql';
 import { Stream, Readable } from 'stream';
 import { ApolloError } from 'apollo-server-core';
 import { GQLContext } from '../../../interfaces';
-import { Post, Role } from '../../../generated/graphql';
+import { Post } from '../../../generated/graphql';
 import { minioService } from '../../../services/minioService';
 
 export interface Upload {
