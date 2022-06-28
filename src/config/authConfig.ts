@@ -13,11 +13,7 @@ export const restricted = [];
 
 export const unRestricted = [Authorized()];
 
-const resolversEnhanceMap: ResolversEnhanceMap = {
-  Like: {
-    _all: [Authorized(Role.USER, Role.ADMIN, Role.MANAGER, Role.SUPER_ADMIN)],
-  },
-};
+const resolversEnhanceMap: ResolversEnhanceMap = {};
 
 const modelsEnhanceMap: ModelsEnhanceMap = {};
 

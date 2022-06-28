@@ -1,0 +1,1 @@
+export { LikeCountResolver } from './LikeCount';
