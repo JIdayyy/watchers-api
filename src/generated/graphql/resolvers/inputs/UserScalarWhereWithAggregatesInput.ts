@@ -92,8 +92,8 @@ export class UserScalarWhereWithAggregatesInput {
   })
   updated_at?: DateTimeWithAggregatesFilter | undefined;
 
-  @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
+  @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
     nullable: true
   })
-  nickname?: StringWithAggregatesFilter | undefined;
+  nickname?: StringNullableWithAggregatesFilter | undefined;
 }

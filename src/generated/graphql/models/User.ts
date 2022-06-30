@@ -85,9 +85,9 @@ export class User {
   Comment?: Comment[];
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  nickname!: string;
+  nickname?: string | null;
 
   Like?: Like[];
 

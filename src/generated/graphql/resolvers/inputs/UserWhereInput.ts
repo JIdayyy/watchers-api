@@ -114,10 +114,10 @@ export class UserWhereInput {
   })
   Comment?: CommentListRelationFilter | undefined;
 
-  @TypeGraphQL.Field(_type => StringFilter, {
+  @TypeGraphQL.Field(_type => StringNullableFilter, {
     nullable: true
   })
-  nickname?: StringFilter | undefined;
+  nickname?: StringNullableFilter | undefined;
 
   @TypeGraphQL.Field(_type => LikeListRelationFilter, {
     nullable: true

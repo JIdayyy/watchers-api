@@ -77,9 +77,9 @@ export class UserGroupBy {
   updated_at!: Date;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  nickname!: string;
+  nickname!: string | null;
 
   @TypeGraphQL.Field(_type => UserCountAggregate, {
     nullable: true

@@ -77,8 +77,8 @@ export class UserUpdateManyMutationInput {
   })
   updated_at?: DateTimeFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
+  @TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput, {
     nullable: true
   })
-  nickname?: StringFieldUpdateOperationsInput | undefined;
+  nickname?: NullableStringFieldUpdateOperationsInput | undefined;
 }

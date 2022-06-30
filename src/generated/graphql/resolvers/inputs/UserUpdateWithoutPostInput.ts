@@ -93,10 +93,10 @@ export class UserUpdateWithoutPostInput {
   })
   Comment?: CommentUpdateManyWithoutAuthorInput | undefined;
 
-  @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
+  @TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput, {
     nullable: true
   })
-  nickname?: StringFieldUpdateOperationsInput | undefined;
+  nickname?: NullableStringFieldUpdateOperationsInput | undefined;
 
   @TypeGraphQL.Field(_type => LikeUpdateManyWithoutUserInput, {
     nullable: true
