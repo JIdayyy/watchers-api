@@ -9,8 +9,14 @@ export type TJWT_PAYLOAD = {
 };
 
 export interface GQLContext {
-  req: Request;
-  res: Response;
+  req: Request<
+    ParamsDictionary,
+    any,
+    any,
+    QueryString.ParsedQs,
+    Record<string, any>
+  >;
+  res: Response<any, Record<string, any>>;
   prisma: PrismaClient;
   user?: TJWT_PAYLOAD;
   pubsub: PubSub;
