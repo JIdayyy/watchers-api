@@ -54,7 +54,7 @@ export const graphQLContext = async ({
   req,
   res,
 }: {
-  req: Gql;
+  req: Request;
   res: Response;
 }): Promise<GQLContext> => {
   const cookies = new Cookies(req, res);
