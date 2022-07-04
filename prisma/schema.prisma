@@ -5,6 +5,8 @@ generator client {
 generator typegraphql {
   provider = "typegraphql-prisma"
   output   = "../src/generated/graphql"
+  binaryTargets = ["native", "darwin"]
+
 }
 
 datasource db {
