@@ -1,0 +1,1 @@
+export { CategoryPostArgs } from "./CategoryPostArgs";
