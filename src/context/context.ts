@@ -61,6 +61,8 @@ export const graphQLContext = async ({
     secure: process.env.NODE_ENV === 'production',
   });
   const token = cookies.get('token');
+  const unsafe = cookies.get('unsafe-token');
+  console.log('unsafe', unsafe);
   console.log('token', token);
   if (process.env.NODE_ENV === 'test') {
     return {
