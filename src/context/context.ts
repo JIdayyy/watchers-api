@@ -57,9 +57,11 @@ export const graphQLContext = async ({
   req: Request;
   res: Response;
 }): Promise<GQLContext> => {
-  const cookies = new Cookies(req, res);
+  const cookies = new Cookies(req, res, {
+    secure: process.env.NODE_ENV === 'production',
+  });
   const token = cookies.get('token');
-
+  console.log('token', token);
   if (process.env.NODE_ENV === 'test') {
     return {
       prisma,
