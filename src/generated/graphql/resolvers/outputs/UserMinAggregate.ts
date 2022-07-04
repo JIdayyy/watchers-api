@@ -77,4 +77,9 @@ export class UserMinAggregate {
     nullable: true
   })
   nickname!: string | null;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  follower_id!: string | null;
 }

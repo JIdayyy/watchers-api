@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { sign } from 'jsonwebtoken';
 import Emailhandler from '../interfaces';
 import sendEmail from '../../../utils/sendEmail';
-import { sign } from 'jsonwebtoken';
 import prismaClient from '../../../../prisma/prismaClient';
 
 const forgotPassword: Emailhandler['forgotPassword'] = async (
@@ -20,7 +20,7 @@ const forgotPassword: Emailhandler['forgotPassword'] = async (
 
     const token = sign(
       {
-        email: email,
+        email,
       },
       process.env.JWT_RESET_PASSWORD_SECRET as string,
       {

@@ -35,11 +35,6 @@ export class TagScalarWhereInput {
   })
   name?: StringFilter | undefined;
 
-  @TypeGraphQL.Field(_type => StringNullableFilter, {
-    nullable: true
-  })
-  description?: StringNullableFilter | undefined;
-
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
@@ -49,4 +44,9 @@ export class TagScalarWhereInput {
     nullable: true
   })
   updated_at?: DateTimeFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringNullableFilter, {
+    nullable: true
+  })
+  description?: StringNullableFilter | undefined;
 }

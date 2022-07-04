@@ -25,8 +25,6 @@ export class Comment {
   })
   content!: string;
 
-  author?: User;
-
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
@@ -42,21 +40,23 @@ export class Comment {
   })
   userId!: string;
 
-  Post?: Post;
-
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
   postSlug!: string;
 
-  replies?: Comment[];
-
-  repliesRelation?: Comment[];
-
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
   parent_id?: string | null;
+
+  Post?: Post;
+
+  author?: User;
+
+  replies?: Comment[];
+
+  repliesRelation?: Comment[];
 
   @TypeGraphQL.Field(_type => CommentCount, {
     nullable: true

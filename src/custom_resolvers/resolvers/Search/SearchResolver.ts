@@ -1,7 +1,7 @@
-import { Post } from './../../../generated/graphql/models/Post';
-import { SearchInput } from '../../../../src/custom_resolvers/Inputs/searchInput';
 import { GQLContext } from 'src/interfaces';
 import { Resolver, Ctx, Arg, Query } from 'type-graphql';
+import { Post } from '../../../generated/graphql/models/Post';
+import { SearchInput } from '../../../../src/custom_resolvers/Inputs/searchInput';
 
 @Resolver()
 export class SearchResolver {

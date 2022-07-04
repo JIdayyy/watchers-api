@@ -3,8 +3,8 @@ import { sign } from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { Request, Response } from 'express';
 import { UserWithoutCountAndPassword } from 'src/custom_resolvers/models/register';
-import { LoginInput } from '../custom_resolvers/Inputs/login';
 import { GQLContext } from 'src/interfaces';
+import { LoginInput } from '../custom_resolvers/Inputs/login';
 
 const loginAuthorizationHeader = async (
   ctx: GQLContext,
@@ -18,7 +18,7 @@ const loginAuthorizationHeader = async (
 
   if (!user) throw new Error("User doesn't exist");
   if (!bcrypt.compareSync(data.password, user.password as string)) {
-    ctx.res.setHeader('x-Authorization', ``);
+    ctx.res.setHeader('x-Authorization', '');
     throw new Error('Invalid password');
   }
 

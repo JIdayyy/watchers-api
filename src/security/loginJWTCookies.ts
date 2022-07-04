@@ -1,14 +1,13 @@
-import { signRefreshToken } from './../services/authentication';
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { LoginInput } from '../custom_resolvers/Inputs/login';
-import { UserWithoutCountAndPassword } from '../interfaces/user';
 import { GQLContext } from 'src/interfaces';
-
 import {
+  signRefreshToken,
   checkPassword,
   setCookieToken,
   signToken,
 } from '../services/authentication';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { LoginInput } from '../custom_resolvers/Inputs/login';
+import { UserWithoutCountAndPassword } from '../interfaces/user';
 
 const loginJWTCookies = async (
   ctx: GQLContext,

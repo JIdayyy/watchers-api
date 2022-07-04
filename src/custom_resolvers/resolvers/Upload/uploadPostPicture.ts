@@ -3,9 +3,9 @@ import { GraphQLUpload } from 'graphql-upload';
 import { Arg, Ctx, Mutation, Resolver } from 'type-graphql';
 import { Stream, Readable } from 'stream';
 import { ApolloError } from 'apollo-server-core';
+import { v4 as uuidv4 } from 'uuid';
 import { GQLContext } from '../../../interfaces';
 import { minioService } from '../../../services/minioService';
-import { v4 as uuidv4 } from 'uuid';
 import { Picture } from '../../models/pictureUrl';
 
 export interface Upload {

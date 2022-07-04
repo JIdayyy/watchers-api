@@ -96,4 +96,9 @@ export class UserScalarWhereWithAggregatesInput {
     nullable: true
   })
   nickname?: StringNullableWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
+    nullable: true
+  })
+  follower_id?: StringNullableWithAggregatesFilter | undefined;
 }

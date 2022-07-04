@@ -36,11 +36,6 @@ export class TagWhereInput {
   })
   name?: StringFilter | undefined;
 
-  @TypeGraphQL.Field(_type => StringNullableFilter, {
-    nullable: true
-  })
-  description?: StringNullableFilter | undefined;
-
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
@@ -50,6 +45,11 @@ export class TagWhereInput {
     nullable: true
   })
   updated_at?: DateTimeFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringNullableFilter, {
+    nullable: true
+  })
+  description?: StringNullableFilter | undefined;
 
   @TypeGraphQL.Field(_type => PostListRelationFilter, {
     nullable: true

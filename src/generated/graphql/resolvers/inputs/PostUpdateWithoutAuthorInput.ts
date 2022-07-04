@@ -60,11 +60,6 @@ export class PostUpdateWithoutAuthorInput {
   })
   Category?: CategoryUpdateOneWithoutPostInput | undefined;
 
-  @TypeGraphQL.Field(_type => TagUpdateManyWithoutPostInput, {
-    nullable: true
-  })
-  Tags?: TagUpdateManyWithoutPostInput | undefined;
-
   @TypeGraphQL.Field(_type => CommentUpdateManyWithoutPostInput, {
     nullable: true
   })
@@ -74,4 +69,9 @@ export class PostUpdateWithoutAuthorInput {
     nullable: true
   })
   Like?: LikeUpdateManyWithoutPostInput | undefined;
+
+  @TypeGraphQL.Field(_type => TagUpdateManyWithoutPostInput, {
+    nullable: true
+  })
+  Tags?: TagUpdateManyWithoutPostInput | undefined;
 }

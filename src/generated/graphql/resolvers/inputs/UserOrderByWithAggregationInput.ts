@@ -81,6 +81,11 @@ export class UserOrderByWithAggregationInput {
   })
   nickname?: "asc" | "desc" | undefined;
 
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true
+  })
+  follower_id?: "asc" | "desc" | undefined;
+
   @TypeGraphQL.Field(_type => UserCountOrderByAggregateInput, {
     nullable: true
   })

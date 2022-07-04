@@ -43,8 +43,6 @@ export class Post {
   })
   isDraft!: boolean;
 
-  author?: User;
-
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
@@ -60,18 +58,20 @@ export class Post {
   })
   userId!: string;
 
-  Category?: Category | null;
-
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
   categoryId?: string | null;
 
-  Tags?: Tag[];
+  Category?: Category | null;
+
+  author?: User;
 
   Comment?: Comment[];
 
   Like?: Like[];
+
+  Tags?: Tag[];
 
   @TypeGraphQL.Field(_type => PostCount, {
     nullable: true

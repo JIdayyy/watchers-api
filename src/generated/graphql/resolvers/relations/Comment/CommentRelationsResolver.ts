@@ -8,17 +8,6 @@ import { transformFields, getPrismaFromContext, transformCountFieldIntoSelectRel
 
 @TypeGraphQL.Resolver(_of => Comment)
 export class CommentRelationsResolver {
-  @TypeGraphQL.FieldResolver(_type => User, {
-    nullable: false
-  })
-  async author(@TypeGraphQL.Root() comment: Comment, @TypeGraphQL.Ctx() ctx: any): Promise<User> {
-    return getPrismaFromContext(ctx).comment.findUnique({
-      where: {
-        id: comment.id,
-      },
-    }).author({});
-  }
-
   @TypeGraphQL.FieldResolver(_type => Post, {
     nullable: false
   })
@@ -28,6 +17,17 @@ export class CommentRelationsResolver {
         id: comment.id,
       },
     }).Post({});
+  }
+
+  @TypeGraphQL.FieldResolver(_type => User, {
+    nullable: false
+  })
+  async author(@TypeGraphQL.Root() comment: Comment, @TypeGraphQL.Ctx() ctx: any): Promise<User> {
+    return getPrismaFromContext(ctx).comment.findUnique({
+      where: {
+        id: comment.id,
+      },
+    }).author({});
   }
 
   @TypeGraphQL.FieldResolver(_type => [Comment], {

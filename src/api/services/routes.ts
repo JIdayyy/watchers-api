@@ -1,6 +1,6 @@
-import validator from '../../middlewares/expressBodyValidator';
 import { Router } from 'express';
 import rateLimit from 'express-rate-limit';
+import validator from '../../middlewares/expressBodyValidator';
 import controller from './controller';
 import validators from '../../utils/validators';
 

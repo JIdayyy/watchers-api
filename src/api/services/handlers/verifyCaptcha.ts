@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import Emailhandler from '../interfaces';
 import axios from 'axios';
+import Emailhandler from '../interfaces';
 
 const resetPassword: Emailhandler['verifyCaptcha'] = async (req, res) => {
   const { token } = req.body;

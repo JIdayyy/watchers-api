@@ -22,7 +22,7 @@ export default function errorHandler(
       : 'Undefined Error'
   );
   res.status(status).send({
-    status: status,
+    status,
     message: err.message,
     details: err.details ? err.details.map((detail) => detail.message) : '🛠',
   });

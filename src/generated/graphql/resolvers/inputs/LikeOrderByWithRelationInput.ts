@@ -20,15 +20,15 @@ export class LikeOrderByWithRelationInput {
   })
   post_id?: "asc" | "desc" | undefined;
 
-  @TypeGraphQL.Field(_type => PostOrderByWithRelationInput, {
-    nullable: true
-  })
-  post?: PostOrderByWithRelationInput | undefined;
-
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
   user_id?: "asc" | "desc" | undefined;
+
+  @TypeGraphQL.Field(_type => PostOrderByWithRelationInput, {
+    nullable: true
+  })
+  post?: PostOrderByWithRelationInput | undefined;
 
   @TypeGraphQL.Field(_type => UserOrderByWithRelationInput, {
     nullable: true

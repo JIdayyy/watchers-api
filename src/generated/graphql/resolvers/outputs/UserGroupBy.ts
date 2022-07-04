@@ -81,6 +81,11 @@ export class UserGroupBy {
   })
   nickname!: string | null;
 
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  follower_id!: string | null;
+
   @TypeGraphQL.Field(_type => UserCountAggregate, {
     nullable: true
   })

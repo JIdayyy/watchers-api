@@ -20,11 +20,6 @@ export class TagGroupBy {
   })
   name!: string;
 
-  @TypeGraphQL.Field(_type => String, {
-    nullable: true
-  })
-  description!: string | null;
-
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
@@ -34,6 +29,11 @@ export class TagGroupBy {
     nullable: false
   })
   updated_at!: Date;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  description!: string | null;
 
   @TypeGraphQL.Field(_type => TagCountAggregate, {
     nullable: true

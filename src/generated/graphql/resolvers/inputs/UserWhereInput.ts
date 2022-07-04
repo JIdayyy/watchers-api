@@ -14,6 +14,7 @@ import { ResetPasswordListRelationFilter } from "../inputs/ResetPasswordListRela
 import { SessionListRelationFilter } from "../inputs/SessionListRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
+import { UserListRelationFilter } from "../inputs/UserListRelationFilter";
 
 @TypeGraphQL.InputType("UserWhereInput", {
   isAbstract: true
@@ -99,43 +100,58 @@ export class UserWhereInput {
   })
   updated_at?: DateTimeFilter | undefined;
 
-  @TypeGraphQL.Field(_type => ResetPasswordListRelationFilter, {
-    nullable: true
-  })
-  ResetPassword?: ResetPasswordListRelationFilter | undefined;
-
-  @TypeGraphQL.Field(_type => PostListRelationFilter, {
-    nullable: true
-  })
-  Post?: PostListRelationFilter | undefined;
-
-  @TypeGraphQL.Field(_type => CommentListRelationFilter, {
-    nullable: true
-  })
-  Comment?: CommentListRelationFilter | undefined;
-
   @TypeGraphQL.Field(_type => StringNullableFilter, {
     nullable: true
   })
   nickname?: StringNullableFilter | undefined;
 
-  @TypeGraphQL.Field(_type => LikeListRelationFilter, {
+  @TypeGraphQL.Field(_type => StringNullableFilter, {
     nullable: true
   })
-  Like?: LikeListRelationFilter | undefined;
-
-  @TypeGraphQL.Field(_type => PreferenceRelationFilter, {
-    nullable: true
-  })
-  Preference?: PreferenceRelationFilter | undefined;
+  follower_id?: StringNullableFilter | undefined;
 
   @TypeGraphQL.Field(_type => AccountListRelationFilter, {
     nullable: true
   })
   Account?: AccountListRelationFilter | undefined;
 
+  @TypeGraphQL.Field(_type => CommentListRelationFilter, {
+    nullable: true
+  })
+  Comment?: CommentListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => LikeListRelationFilter, {
+    nullable: true
+  })
+  Like?: LikeListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => PostListRelationFilter, {
+    nullable: true
+  })
+  Post?: PostListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => PreferenceRelationFilter, {
+    nullable: true
+  })
+  Preference?: PreferenceRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => ResetPasswordListRelationFilter, {
+    nullable: true
+  })
+  ResetPassword?: ResetPasswordListRelationFilter | undefined;
+
   @TypeGraphQL.Field(_type => SessionListRelationFilter, {
     nullable: true
   })
   Session?: SessionListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => UserListRelationFilter, {
+    nullable: true
+  })
+  followers?: UserListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => UserListRelationFilter, {
+    nullable: true
+  })
+  followed_users?: UserListRelationFilter | undefined;
 }

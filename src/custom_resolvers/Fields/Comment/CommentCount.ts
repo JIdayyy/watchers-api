@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { GQLContext } from 'src/interfaces';
-import { Post, User } from '../../../../src/generated/graphql';
 import { Ctx, FieldResolver, Resolver, Root } from 'type-graphql';
+import { Post, User } from '../../../../src/generated/graphql';
 import { Count } from '../../../../src/custom_resolvers/models/commentCount';
 
 @Resolver((of) => Post)

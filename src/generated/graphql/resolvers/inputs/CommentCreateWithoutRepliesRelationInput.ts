@@ -25,11 +25,6 @@ export class CommentCreateWithoutRepliesRelationInput {
   })
   content!: string;
 
-  @TypeGraphQL.Field(_type => UserCreateNestedOneWithoutCommentInput, {
-    nullable: false
-  })
-  author!: UserCreateNestedOneWithoutCommentInput;
-
   @TypeGraphQL.Field(_type => Date, {
     nullable: true
   })
@@ -40,18 +35,23 @@ export class CommentCreateWithoutRepliesRelationInput {
   })
   updated_at?: Date | undefined;
 
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  parent_id?: string | undefined;
+
   @TypeGraphQL.Field(_type => PostCreateNestedOneWithoutCommentInput, {
     nullable: false
   })
   Post!: PostCreateNestedOneWithoutCommentInput;
 
+  @TypeGraphQL.Field(_type => UserCreateNestedOneWithoutCommentInput, {
+    nullable: false
+  })
+  author!: UserCreateNestedOneWithoutCommentInput;
+
   @TypeGraphQL.Field(_type => CommentCreateNestedManyWithoutRepliesRelationInput, {
     nullable: true
   })
   replies?: CommentCreateNestedManyWithoutRepliesRelationInput | undefined;
-
-  @TypeGraphQL.Field(_type => String, {
-    nullable: true
-  })
-  parent_id?: string | undefined;
 }

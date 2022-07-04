@@ -8,6 +8,8 @@ import { PostCreateNestedManyWithoutAuthorInput } from "../inputs/PostCreateNest
 import { PreferenceCreateNestedOneWithoutUserInput } from "../inputs/PreferenceCreateNestedOneWithoutUserInput";
 import { ResetPasswordCreateNestedManyWithoutUserInput } from "../inputs/ResetPasswordCreateNestedManyWithoutUserInput";
 import { SessionCreateNestedManyWithoutUserInput } from "../inputs/SessionCreateNestedManyWithoutUserInput";
+import { UserCreateNestedManyWithoutFollowed_usersInput } from "../inputs/UserCreateNestedManyWithoutFollowed_usersInput";
+import { UserCreateNestedManyWithoutFollowersInput } from "../inputs/UserCreateNestedManyWithoutFollowersInput";
 import { Role } from "../../enums/Role";
 
 @TypeGraphQL.InputType("UserCreateWithoutAccountInput", {
@@ -79,38 +81,53 @@ export class UserCreateWithoutAccountInput {
   })
   updated_at?: Date | undefined;
 
-  @TypeGraphQL.Field(_type => ResetPasswordCreateNestedManyWithoutUserInput, {
+  @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  ResetPassword?: ResetPasswordCreateNestedManyWithoutUserInput | undefined;
+  nickname?: string | undefined;
 
-  @TypeGraphQL.Field(_type => PostCreateNestedManyWithoutAuthorInput, {
+  @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  Post?: PostCreateNestedManyWithoutAuthorInput | undefined;
+  follower_id?: string | undefined;
 
   @TypeGraphQL.Field(_type => CommentCreateNestedManyWithoutAuthorInput, {
     nullable: true
   })
   Comment?: CommentCreateNestedManyWithoutAuthorInput | undefined;
 
-  @TypeGraphQL.Field(_type => String, {
-    nullable: true
-  })
-  nickname?: string | undefined;
-
   @TypeGraphQL.Field(_type => LikeCreateNestedManyWithoutUserInput, {
     nullable: true
   })
   Like?: LikeCreateNestedManyWithoutUserInput | undefined;
+
+  @TypeGraphQL.Field(_type => PostCreateNestedManyWithoutAuthorInput, {
+    nullable: true
+  })
+  Post?: PostCreateNestedManyWithoutAuthorInput | undefined;
 
   @TypeGraphQL.Field(_type => PreferenceCreateNestedOneWithoutUserInput, {
     nullable: true
   })
   Preference?: PreferenceCreateNestedOneWithoutUserInput | undefined;
 
+  @TypeGraphQL.Field(_type => ResetPasswordCreateNestedManyWithoutUserInput, {
+    nullable: true
+  })
+  ResetPassword?: ResetPasswordCreateNestedManyWithoutUserInput | undefined;
+
   @TypeGraphQL.Field(_type => SessionCreateNestedManyWithoutUserInput, {
     nullable: true
   })
   Session?: SessionCreateNestedManyWithoutUserInput | undefined;
+
+  @TypeGraphQL.Field(_type => UserCreateNestedManyWithoutFollowed_usersInput, {
+    nullable: true
+  })
+  followers?: UserCreateNestedManyWithoutFollowed_usersInput | undefined;
+
+  @TypeGraphQL.Field(_type => UserCreateNestedManyWithoutFollowersInput, {
+    nullable: true
+  })
+  followed_users?: UserCreateNestedManyWithoutFollowersInput | undefined;
 }

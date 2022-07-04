@@ -8,6 +8,8 @@ import { LikeCreateNestedManyWithoutUserInput } from "../inputs/LikeCreateNested
 import { PostCreateNestedManyWithoutAuthorInput } from "../inputs/PostCreateNestedManyWithoutAuthorInput";
 import { PreferenceCreateNestedOneWithoutUserInput } from "../inputs/PreferenceCreateNestedOneWithoutUserInput";
 import { SessionCreateNestedManyWithoutUserInput } from "../inputs/SessionCreateNestedManyWithoutUserInput";
+import { UserCreateNestedManyWithoutFollowed_usersInput } from "../inputs/UserCreateNestedManyWithoutFollowed_usersInput";
+import { UserCreateNestedManyWithoutFollowersInput } from "../inputs/UserCreateNestedManyWithoutFollowersInput";
 import { Role } from "../../enums/Role";
 
 @TypeGraphQL.InputType("UserCreateWithoutResetPasswordInput", {
@@ -79,38 +81,53 @@ export class UserCreateWithoutResetPasswordInput {
   })
   updated_at?: Date | undefined;
 
-  @TypeGraphQL.Field(_type => PostCreateNestedManyWithoutAuthorInput, {
-    nullable: true
-  })
-  Post?: PostCreateNestedManyWithoutAuthorInput | undefined;
-
-  @TypeGraphQL.Field(_type => CommentCreateNestedManyWithoutAuthorInput, {
-    nullable: true
-  })
-  Comment?: CommentCreateNestedManyWithoutAuthorInput | undefined;
-
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
   nickname?: string | undefined;
 
-  @TypeGraphQL.Field(_type => LikeCreateNestedManyWithoutUserInput, {
+  @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  Like?: LikeCreateNestedManyWithoutUserInput | undefined;
-
-  @TypeGraphQL.Field(_type => PreferenceCreateNestedOneWithoutUserInput, {
-    nullable: true
-  })
-  Preference?: PreferenceCreateNestedOneWithoutUserInput | undefined;
+  follower_id?: string | undefined;
 
   @TypeGraphQL.Field(_type => AccountCreateNestedManyWithoutUserInput, {
     nullable: true
   })
   Account?: AccountCreateNestedManyWithoutUserInput | undefined;
 
+  @TypeGraphQL.Field(_type => CommentCreateNestedManyWithoutAuthorInput, {
+    nullable: true
+  })
+  Comment?: CommentCreateNestedManyWithoutAuthorInput | undefined;
+
+  @TypeGraphQL.Field(_type => LikeCreateNestedManyWithoutUserInput, {
+    nullable: true
+  })
+  Like?: LikeCreateNestedManyWithoutUserInput | undefined;
+
+  @TypeGraphQL.Field(_type => PostCreateNestedManyWithoutAuthorInput, {
+    nullable: true
+  })
+  Post?: PostCreateNestedManyWithoutAuthorInput | undefined;
+
+  @TypeGraphQL.Field(_type => PreferenceCreateNestedOneWithoutUserInput, {
+    nullable: true
+  })
+  Preference?: PreferenceCreateNestedOneWithoutUserInput | undefined;
+
   @TypeGraphQL.Field(_type => SessionCreateNestedManyWithoutUserInput, {
     nullable: true
   })
   Session?: SessionCreateNestedManyWithoutUserInput | undefined;
+
+  @TypeGraphQL.Field(_type => UserCreateNestedManyWithoutFollowed_usersInput, {
+    nullable: true
+  })
+  followers?: UserCreateNestedManyWithoutFollowed_usersInput | undefined;
+
+  @TypeGraphQL.Field(_type => UserCreateNestedManyWithoutFollowersInput, {
+    nullable: true
+  })
+  followed_users?: UserCreateNestedManyWithoutFollowersInput | undefined;
 }

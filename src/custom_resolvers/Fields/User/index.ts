@@ -1,0 +1,1 @@
+export { FollowersCountResolver } from './FollowersCount';

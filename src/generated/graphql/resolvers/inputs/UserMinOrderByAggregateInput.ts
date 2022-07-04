@@ -77,4 +77,9 @@ export class UserMinOrderByAggregateInput {
     nullable: true
   })
   nickname?: "asc" | "desc" | undefined;
+
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true
+  })
+  follower_id?: "asc" | "desc" | undefined;
 }

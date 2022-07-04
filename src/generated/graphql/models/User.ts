@@ -78,24 +78,33 @@ export class User {
   })
   updated_at!: Date;
 
-  ResetPassword?: ResetPassword[];
-
-  Post?: Post[];
-
-  Comment?: Comment[];
-
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
   nickname?: string | null;
 
-  Like?: Like[];
-
-  Preference?: Preference | null;
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  follower_id?: string | null;
 
   Account?: Account[];
 
+  Comment?: Comment[];
+
+  Like?: Like[];
+
+  Post?: Post[];
+
+  Preference?: Preference | null;
+
+  ResetPassword?: ResetPassword[];
+
   Session?: Session[];
+
+  followers?: User[];
+
+  followed_users?: User[];
 
   @TypeGraphQL.Field(_type => UserCount, {
     nullable: true

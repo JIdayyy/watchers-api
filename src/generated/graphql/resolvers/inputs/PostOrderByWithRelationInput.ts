@@ -43,11 +43,6 @@ export class PostOrderByWithRelationInput {
   })
   isDraft?: "asc" | "desc" | undefined;
 
-  @TypeGraphQL.Field(_type => UserOrderByWithRelationInput, {
-    nullable: true
-  })
-  author?: UserOrderByWithRelationInput | undefined;
-
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
@@ -63,20 +58,20 @@ export class PostOrderByWithRelationInput {
   })
   userId?: "asc" | "desc" | undefined;
 
-  @TypeGraphQL.Field(_type => CategoryOrderByWithRelationInput, {
-    nullable: true
-  })
-  Category?: CategoryOrderByWithRelationInput | undefined;
-
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
   categoryId?: "asc" | "desc" | undefined;
 
-  @TypeGraphQL.Field(_type => TagOrderByRelationAggregateInput, {
+  @TypeGraphQL.Field(_type => CategoryOrderByWithRelationInput, {
     nullable: true
   })
-  Tags?: TagOrderByRelationAggregateInput | undefined;
+  Category?: CategoryOrderByWithRelationInput | undefined;
+
+  @TypeGraphQL.Field(_type => UserOrderByWithRelationInput, {
+    nullable: true
+  })
+  author?: UserOrderByWithRelationInput | undefined;
 
   @TypeGraphQL.Field(_type => CommentOrderByRelationAggregateInput, {
     nullable: true
@@ -87,4 +82,9 @@ export class PostOrderByWithRelationInput {
     nullable: true
   })
   Like?: LikeOrderByRelationAggregateInput | undefined;
+
+  @TypeGraphQL.Field(_type => TagOrderByRelationAggregateInput, {
+    nullable: true
+  })
+  Tags?: TagOrderByRelationAggregateInput | undefined;
 }

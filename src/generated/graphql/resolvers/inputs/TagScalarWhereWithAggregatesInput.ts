@@ -35,11 +35,6 @@ export class TagScalarWhereWithAggregatesInput {
   })
   name?: StringWithAggregatesFilter | undefined;
 
-  @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
-    nullable: true
-  })
-  description?: StringNullableWithAggregatesFilter | undefined;
-
   @TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter, {
     nullable: true
   })
@@ -49,4 +44,9 @@ export class TagScalarWhereWithAggregatesInput {
     nullable: true
   })
   updated_at?: DateTimeWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
+    nullable: true
+  })
+  description?: StringNullableWithAggregatesFilter | undefined;
 }

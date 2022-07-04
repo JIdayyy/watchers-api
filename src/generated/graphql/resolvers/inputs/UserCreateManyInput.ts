@@ -77,4 +77,9 @@ export class UserCreateManyInput {
     nullable: true
   })
   nickname?: string | undefined;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  follower_id?: string | undefined;
 }

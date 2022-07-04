@@ -35,6 +35,11 @@ export class CommentCreateWithoutAuthorInput {
   })
   updated_at?: Date | undefined;
 
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  parent_id?: string | undefined;
+
   @TypeGraphQL.Field(_type => PostCreateNestedOneWithoutCommentInput, {
     nullable: false
   })
@@ -49,9 +54,4 @@ export class CommentCreateWithoutAuthorInput {
     nullable: true
   })
   repliesRelation?: CommentCreateNestedManyWithoutRepliesInput | undefined;
-
-  @TypeGraphQL.Field(_type => String, {
-    nullable: true
-  })
-  parent_id?: string | undefined;
 }

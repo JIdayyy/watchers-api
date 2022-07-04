@@ -36,15 +36,15 @@ export class LikeWhereInput {
   })
   post_id?: StringNullableFilter | undefined;
 
-  @TypeGraphQL.Field(_type => PostRelationFilter, {
-    nullable: true
-  })
-  post?: PostRelationFilter | undefined;
-
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
   user_id?: StringFilter | undefined;
+
+  @TypeGraphQL.Field(_type => PostRelationFilter, {
+    nullable: true
+  })
+  post?: PostRelationFilter | undefined;
 
   @TypeGraphQL.Field(_type => UserRelationFilter, {
     nullable: true

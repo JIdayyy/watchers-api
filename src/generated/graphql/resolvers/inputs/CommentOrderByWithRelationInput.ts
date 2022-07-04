@@ -26,11 +26,6 @@ export class CommentOrderByWithRelationInput {
   })
   content?: "asc" | "desc" | undefined;
 
-  @TypeGraphQL.Field(_type => UserOrderByWithRelationInput, {
-    nullable: true
-  })
-  author?: UserOrderByWithRelationInput | undefined;
-
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
@@ -46,15 +41,25 @@ export class CommentOrderByWithRelationInput {
   })
   userId?: "asc" | "desc" | undefined;
 
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true
+  })
+  postSlug?: "asc" | "desc" | undefined;
+
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true
+  })
+  parent_id?: "asc" | "desc" | undefined;
+
   @TypeGraphQL.Field(_type => PostOrderByWithRelationInput, {
     nullable: true
   })
   Post?: PostOrderByWithRelationInput | undefined;
 
-  @TypeGraphQL.Field(_type => SortOrder, {
+  @TypeGraphQL.Field(_type => UserOrderByWithRelationInput, {
     nullable: true
   })
-  postSlug?: "asc" | "desc" | undefined;
+  author?: UserOrderByWithRelationInput | undefined;
 
   @TypeGraphQL.Field(_type => CommentOrderByRelationAggregateInput, {
     nullable: true
@@ -65,9 +70,4 @@ export class CommentOrderByWithRelationInput {
     nullable: true
   })
   repliesRelation?: CommentOrderByRelationAggregateInput | undefined;
-
-  @TypeGraphQL.Field(_type => SortOrder, {
-    nullable: true
-  })
-  parent_id?: "asc" | "desc" | undefined;
 }
