@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import prismaClient from '../../../../prisma/prismaClient';
 import { decode, JwtPayload, verify } from 'jsonwebtoken';
-import Emailhandler from '../interfaces';
 import bcrypt from 'bcryptjs';
+import prismaClient from '../../../../prisma/prismaClient';
+import Emailhandler from '../interfaces';
 
 const resetPassword: Emailhandler['resetPassword'] = async (req, res) => {
   const { password: newPassword, token } = req.body;

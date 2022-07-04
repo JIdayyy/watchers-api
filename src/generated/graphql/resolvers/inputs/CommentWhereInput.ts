@@ -43,11 +43,6 @@ export class CommentWhereInput {
   })
   content?: StringFilter | undefined;
 
-  @TypeGraphQL.Field(_type => UserRelationFilter, {
-    nullable: true
-  })
-  author?: UserRelationFilter | undefined;
-
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
@@ -63,15 +58,25 @@ export class CommentWhereInput {
   })
   userId?: StringFilter | undefined;
 
+  @TypeGraphQL.Field(_type => StringFilter, {
+    nullable: true
+  })
+  postSlug?: StringFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringNullableFilter, {
+    nullable: true
+  })
+  parent_id?: StringNullableFilter | undefined;
+
   @TypeGraphQL.Field(_type => PostRelationFilter, {
     nullable: true
   })
   Post?: PostRelationFilter | undefined;
 
-  @TypeGraphQL.Field(_type => StringFilter, {
+  @TypeGraphQL.Field(_type => UserRelationFilter, {
     nullable: true
   })
-  postSlug?: StringFilter | undefined;
+  author?: UserRelationFilter | undefined;
 
   @TypeGraphQL.Field(_type => CommentListRelationFilter, {
     nullable: true
@@ -82,9 +87,4 @@ export class CommentWhereInput {
     nullable: true
   })
   repliesRelation?: CommentListRelationFilter | undefined;
-
-  @TypeGraphQL.Field(_type => StringNullableFilter, {
-    nullable: true
-  })
-  parent_id?: StringNullableFilter | undefined;
 }

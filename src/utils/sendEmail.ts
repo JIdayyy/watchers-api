@@ -1,6 +1,6 @@
-import createMail from '../api/services/templates/mailTemplate';
 import nodemailer from 'nodemailer';
 import SMTPTransport from 'nodemailer/lib/smtp-transport';
+import createMail from '../api/services/templates/mailTemplate';
 
 const sendEmail = async (
   email: string,
@@ -24,7 +24,7 @@ const sendEmail = async (
       {
         from: process.env.EMAIL_USER,
         to: email,
-        subject: subject,
+        subject,
         html: createMail('julien', 'julien_abbadie@hotmail.fr', link),
       },
       (err, succes) => {

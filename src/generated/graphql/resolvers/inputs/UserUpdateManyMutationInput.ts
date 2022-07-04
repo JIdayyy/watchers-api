@@ -81,4 +81,9 @@ export class UserUpdateManyMutationInput {
     nullable: true
   })
   nickname?: NullableStringFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput, {
+    nullable: true
+  })
+  follower_id?: NullableStringFieldUpdateOperationsInput | undefined;
 }

@@ -1,5 +1,5 @@
-import minioClient from './minioClient';
 import { Readable } from 'stream';
+import minioClient from './minioClient';
 
 const config = {
   bucket: 'watchers',

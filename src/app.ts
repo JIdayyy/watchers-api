@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import whitelist from './constants/cors.whitelist';
 import { createServer } from 'http';
+import whitelist from './constants/cors.whitelist';
 import restApi from './api';
 import errorHandler from './middlewares/errorHandler';
 

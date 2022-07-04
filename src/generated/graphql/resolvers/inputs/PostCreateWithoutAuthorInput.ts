@@ -56,11 +56,6 @@ export class PostCreateWithoutAuthorInput {
   })
   Category?: CategoryCreateNestedOneWithoutPostInput | undefined;
 
-  @TypeGraphQL.Field(_type => TagCreateNestedManyWithoutPostInput, {
-    nullable: true
-  })
-  Tags?: TagCreateNestedManyWithoutPostInput | undefined;
-
   @TypeGraphQL.Field(_type => CommentCreateNestedManyWithoutPostInput, {
     nullable: true
   })
@@ -70,4 +65,9 @@ export class PostCreateWithoutAuthorInput {
     nullable: true
   })
   Like?: LikeCreateNestedManyWithoutPostInput | undefined;
+
+  @TypeGraphQL.Field(_type => TagCreateNestedManyWithoutPostInput, {
+    nullable: true
+  })
+  Tags?: TagCreateNestedManyWithoutPostInput | undefined;
 }

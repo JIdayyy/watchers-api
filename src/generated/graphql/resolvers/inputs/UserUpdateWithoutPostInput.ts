@@ -13,6 +13,8 @@ import { PreferenceUpdateOneWithoutUserInput } from "../inputs/PreferenceUpdateO
 import { ResetPasswordUpdateManyWithoutUserInput } from "../inputs/ResetPasswordUpdateManyWithoutUserInput";
 import { SessionUpdateManyWithoutUserInput } from "../inputs/SessionUpdateManyWithoutUserInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
+import { UserUpdateManyWithoutFollowed_usersInput } from "../inputs/UserUpdateManyWithoutFollowed_usersInput";
+import { UserUpdateManyWithoutFollowersInput } from "../inputs/UserUpdateManyWithoutFollowersInput";
 
 @TypeGraphQL.InputType("UserUpdateWithoutPostInput", {
   isAbstract: true
@@ -83,20 +85,25 @@ export class UserUpdateWithoutPostInput {
   })
   updated_at?: DateTimeFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => ResetPasswordUpdateManyWithoutUserInput, {
+  @TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput, {
     nullable: true
   })
-  ResetPassword?: ResetPasswordUpdateManyWithoutUserInput | undefined;
+  nickname?: NullableStringFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput, {
+    nullable: true
+  })
+  follower_id?: NullableStringFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => AccountUpdateManyWithoutUserInput, {
+    nullable: true
+  })
+  Account?: AccountUpdateManyWithoutUserInput | undefined;
 
   @TypeGraphQL.Field(_type => CommentUpdateManyWithoutAuthorInput, {
     nullable: true
   })
   Comment?: CommentUpdateManyWithoutAuthorInput | undefined;
-
-  @TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput, {
-    nullable: true
-  })
-  nickname?: NullableStringFieldUpdateOperationsInput | undefined;
 
   @TypeGraphQL.Field(_type => LikeUpdateManyWithoutUserInput, {
     nullable: true
@@ -108,13 +115,23 @@ export class UserUpdateWithoutPostInput {
   })
   Preference?: PreferenceUpdateOneWithoutUserInput | undefined;
 
-  @TypeGraphQL.Field(_type => AccountUpdateManyWithoutUserInput, {
+  @TypeGraphQL.Field(_type => ResetPasswordUpdateManyWithoutUserInput, {
     nullable: true
   })
-  Account?: AccountUpdateManyWithoutUserInput | undefined;
+  ResetPassword?: ResetPasswordUpdateManyWithoutUserInput | undefined;
 
   @TypeGraphQL.Field(_type => SessionUpdateManyWithoutUserInput, {
     nullable: true
   })
   Session?: SessionUpdateManyWithoutUserInput | undefined;
+
+  @TypeGraphQL.Field(_type => UserUpdateManyWithoutFollowed_usersInput, {
+    nullable: true
+  })
+  followers?: UserUpdateManyWithoutFollowed_usersInput | undefined;
+
+  @TypeGraphQL.Field(_type => UserUpdateManyWithoutFollowersInput, {
+    nullable: true
+  })
+  followed_users?: UserUpdateManyWithoutFollowersInput | undefined;
 }

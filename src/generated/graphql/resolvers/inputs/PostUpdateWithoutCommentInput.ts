@@ -45,11 +45,6 @@ export class PostUpdateWithoutCommentInput {
   })
   isDraft?: BoolFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => UserUpdateOneRequiredWithoutPostInput, {
-    nullable: true
-  })
-  author?: UserUpdateOneRequiredWithoutPostInput | undefined;
-
   @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
     nullable: true
   })
@@ -65,13 +60,18 @@ export class PostUpdateWithoutCommentInput {
   })
   Category?: CategoryUpdateOneWithoutPostInput | undefined;
 
-  @TypeGraphQL.Field(_type => TagUpdateManyWithoutPostInput, {
+  @TypeGraphQL.Field(_type => UserUpdateOneRequiredWithoutPostInput, {
     nullable: true
   })
-  Tags?: TagUpdateManyWithoutPostInput | undefined;
+  author?: UserUpdateOneRequiredWithoutPostInput | undefined;
 
   @TypeGraphQL.Field(_type => LikeUpdateManyWithoutPostInput, {
     nullable: true
   })
   Like?: LikeUpdateManyWithoutPostInput | undefined;
+
+  @TypeGraphQL.Field(_type => TagUpdateManyWithoutPostInput, {
+    nullable: true
+  })
+  Tags?: TagUpdateManyWithoutPostInput | undefined;
 }

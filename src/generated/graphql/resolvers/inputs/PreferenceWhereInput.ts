@@ -87,13 +87,13 @@ export class PreferenceWhereInput {
   })
   updated_at?: DateTimeFilter | undefined;
 
-  @TypeGraphQL.Field(_type => UserRelationFilter, {
-    nullable: true
-  })
-  User?: UserRelationFilter | undefined;
-
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
   userId?: StringFilter | undefined;
+
+  @TypeGraphQL.Field(_type => UserRelationFilter, {
+    nullable: true
+  })
+  User?: UserRelationFilter | undefined;
 }

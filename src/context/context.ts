@@ -2,15 +2,15 @@ import Cookies from 'cookies';
 import { Request, Response } from 'express';
 import { verify } from 'jsonwebtoken';
 import { PubSub } from 'graphql-subscriptions';
+import { Context, SubscribeMessage } from 'graphql-ws';
+import { ExecutionArgs } from 'graphql';
+import { Extra } from 'graphql-ws/lib/use/ws';
+import prisma from '../../prisma/prismaClient';
 import {
   GQLContext,
   TJWT_PAYLOAD,
   WebsocketContext,
 } from '../interfaces/index';
-import { Context, SubscribeMessage } from 'graphql-ws';
-import prisma from '../../prisma/prismaClient';
-import { ExecutionArgs } from 'graphql';
-import { Extra } from 'graphql-ws/lib/use/ws';
 
 const pubsub = new PubSub();
 
@@ -33,10 +33,21 @@ export const webSocketContext = async (
       throw new Error('User not logged in');
     }
 
-    return { ctx, msg, args, prisma, user };
+    return {
+      ctx,
+      msg,
+      args,
+      prisma,
+      user,
+    };
   }
 
-  return { ctx, msg, args, prisma };
+  return {
+    ctx,
+    msg,
+    args,
+    prisma,
+  };
 };
 
 export const graphQLContext = async ({
@@ -50,7 +61,12 @@ export const graphQLContext = async ({
   const token = cookies.get('token');
 
   if (process.env.NODE_ENV === 'test') {
-    return { prisma, req, res, pubsub };
+    return {
+      prisma,
+      req,
+      res,
+      pubsub,
+    };
   }
 
   if (token) {
@@ -62,8 +78,19 @@ export const graphQLContext = async ({
       throw new Error('User not logged in');
     }
 
-    return { prisma, req, res, pubsub, user };
+    return {
+      prisma,
+      req,
+      res,
+      pubsub,
+      user,
+    };
   }
 
-  return { prisma, req, res, pubsub };
+  return {
+    prisma,
+    req,
+    res,
+    pubsub,
+  };
 };

@@ -61,11 +61,6 @@ export class PostWhereInput {
   })
   isDraft?: BoolFilter | undefined;
 
-  @TypeGraphQL.Field(_type => UserRelationFilter, {
-    nullable: true
-  })
-  author?: UserRelationFilter | undefined;
-
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
@@ -81,20 +76,20 @@ export class PostWhereInput {
   })
   userId?: StringFilter | undefined;
 
-  @TypeGraphQL.Field(_type => CategoryRelationFilter, {
-    nullable: true
-  })
-  Category?: CategoryRelationFilter | undefined;
-
   @TypeGraphQL.Field(_type => StringNullableFilter, {
     nullable: true
   })
   categoryId?: StringNullableFilter | undefined;
 
-  @TypeGraphQL.Field(_type => TagListRelationFilter, {
+  @TypeGraphQL.Field(_type => CategoryRelationFilter, {
     nullable: true
   })
-  Tags?: TagListRelationFilter | undefined;
+  Category?: CategoryRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => UserRelationFilter, {
+    nullable: true
+  })
+  author?: UserRelationFilter | undefined;
 
   @TypeGraphQL.Field(_type => CommentListRelationFilter, {
     nullable: true
@@ -105,4 +100,9 @@ export class PostWhereInput {
     nullable: true
   })
   Like?: LikeListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => TagListRelationFilter, {
+    nullable: true
+  })
+  Tags?: TagListRelationFilter | undefined;
 }

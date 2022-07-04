@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { sign } from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
+import { GQLContext } from 'src/interfaces';
 import { UserWithoutCountAndPassword } from '../../src/interfaces/user';
 import { LoginInput } from '../../src/custom_resolvers/Inputs/login';
-import { GQLContext } from 'src/interfaces';
 
 const loginAuthorizationHeader = async (
   ctx: GQLContext,

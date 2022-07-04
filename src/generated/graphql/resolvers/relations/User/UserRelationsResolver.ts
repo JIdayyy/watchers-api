@@ -9,6 +9,8 @@ import { Session } from "../../../models/Session";
 import { User } from "../../../models/User";
 import { UserAccountArgs } from "./args/UserAccountArgs";
 import { UserCommentArgs } from "./args/UserCommentArgs";
+import { UserFollowed_usersArgs } from "./args/UserFollowed_usersArgs";
+import { UserFollowersArgs } from "./args/UserFollowersArgs";
 import { UserLikeArgs } from "./args/UserLikeArgs";
 import { UserPostArgs } from "./args/UserPostArgs";
 import { UserResetPasswordArgs } from "./args/UserResetPasswordArgs";
@@ -17,26 +19,15 @@ import { transformFields, getPrismaFromContext, transformCountFieldIntoSelectRel
 
 @TypeGraphQL.Resolver(_of => User)
 export class UserRelationsResolver {
-  @TypeGraphQL.FieldResolver(_type => [ResetPassword], {
+  @TypeGraphQL.FieldResolver(_type => [Account], {
     nullable: false
   })
-  async ResetPassword(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserResetPasswordArgs): Promise<ResetPassword[]> {
+  async Account(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserAccountArgs): Promise<Account[]> {
     return getPrismaFromContext(ctx).user.findUnique({
       where: {
         id: user.id,
       },
-    }).ResetPassword(args);
-  }
-
-  @TypeGraphQL.FieldResolver(_type => [Post], {
-    nullable: false
-  })
-  async Post(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserPostArgs): Promise<Post[]> {
-    return getPrismaFromContext(ctx).user.findUnique({
-      where: {
-        id: user.id,
-      },
-    }).Post(args);
+    }).Account(args);
   }
 
   @TypeGraphQL.FieldResolver(_type => [Comment], {
@@ -61,6 +52,17 @@ export class UserRelationsResolver {
     }).Like(args);
   }
 
+  @TypeGraphQL.FieldResolver(_type => [Post], {
+    nullable: false
+  })
+  async Post(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserPostArgs): Promise<Post[]> {
+    return getPrismaFromContext(ctx).user.findUnique({
+      where: {
+        id: user.id,
+      },
+    }).Post(args);
+  }
+
   @TypeGraphQL.FieldResolver(_type => Preference, {
     nullable: true
   })
@@ -72,15 +74,15 @@ export class UserRelationsResolver {
     }).Preference({});
   }
 
-  @TypeGraphQL.FieldResolver(_type => [Account], {
+  @TypeGraphQL.FieldResolver(_type => [ResetPassword], {
     nullable: false
   })
-  async Account(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserAccountArgs): Promise<Account[]> {
+  async ResetPassword(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserResetPasswordArgs): Promise<ResetPassword[]> {
     return getPrismaFromContext(ctx).user.findUnique({
       where: {
         id: user.id,
       },
-    }).Account(args);
+    }).ResetPassword(args);
   }
 
   @TypeGraphQL.FieldResolver(_type => [Session], {
@@ -92,5 +94,27 @@ export class UserRelationsResolver {
         id: user.id,
       },
     }).Session(args);
+  }
+
+  @TypeGraphQL.FieldResolver(_type => [User], {
+    nullable: false
+  })
+  async followers(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserFollowersArgs): Promise<User[]> {
+    return getPrismaFromContext(ctx).user.findUnique({
+      where: {
+        id: user.id,
+      },
+    }).followers(args);
+  }
+
+  @TypeGraphQL.FieldResolver(_type => [User], {
+    nullable: false
+  })
+  async followed_users(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserFollowed_usersArgs): Promise<User[]> {
+    return getPrismaFromContext(ctx).user.findUnique({
+      where: {
+        id: user.id,
+      },
+    }).followed_users(args);
   }
 }

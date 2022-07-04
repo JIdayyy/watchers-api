@@ -28,11 +28,6 @@ export class CommentUpdateWithoutPostInput {
   })
   content?: StringFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => UserUpdateOneRequiredWithoutCommentInput, {
-    nullable: true
-  })
-  author?: UserUpdateOneRequiredWithoutCommentInput | undefined;
-
   @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
     nullable: true
   })
@@ -43,6 +38,16 @@ export class CommentUpdateWithoutPostInput {
   })
   updated_at?: DateTimeFieldUpdateOperationsInput | undefined;
 
+  @TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput, {
+    nullable: true
+  })
+  parent_id?: NullableStringFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => UserUpdateOneRequiredWithoutCommentInput, {
+    nullable: true
+  })
+  author?: UserUpdateOneRequiredWithoutCommentInput | undefined;
+
   @TypeGraphQL.Field(_type => CommentUpdateManyWithoutRepliesRelationInput, {
     nullable: true
   })
@@ -52,9 +57,4 @@ export class CommentUpdateWithoutPostInput {
     nullable: true
   })
   repliesRelation?: CommentUpdateManyWithoutRepliesInput | undefined;
-
-  @TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput, {
-    nullable: true
-  })
-  parent_id?: NullableStringFieldUpdateOperationsInput | undefined;
 }

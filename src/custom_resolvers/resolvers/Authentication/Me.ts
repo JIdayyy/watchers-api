@@ -2,10 +2,10 @@
 import { Ctx, Mutation, Resolver } from 'type-graphql';
 import Cookies from 'cookies';
 import jwt, { JwtPayload } from 'jsonwebtoken';
+import { UserWithoutCountAndPassword } from 'src/interfaces/user';
 import { User } from '../../../generated/graphql';
 import { setCookieToken, signToken } from '../../../services/authentication';
 import { GQLContext } from '../../../interfaces';
-import { UserWithoutCountAndPassword } from 'src/interfaces/user';
 
 @Resolver()
 export class MeResolver {
@@ -19,15 +19,11 @@ export class MeResolver {
 
     if (!token) throw new Error('No token provided');
 
-    jwt.verify(
-      token,
-      process.env.JWT_SECRET as string,
-      function (err, decoded) {
-        if (err) {
-          return console.log(decoded);
-        }
+    jwt.verify(token, process.env.JWT_SECRET as string, (err, decoded) => {
+      if (err) {
+        return console.log(decoded);
       }
-    );
+    });
 
     const payload = jwt.verify(
       token,

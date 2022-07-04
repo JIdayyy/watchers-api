@@ -41,11 +41,6 @@ export class PostCreateWithoutTagsInput {
   })
   isDraft?: boolean | undefined;
 
-  @TypeGraphQL.Field(_type => UserCreateNestedOneWithoutPostInput, {
-    nullable: false
-  })
-  author!: UserCreateNestedOneWithoutPostInput;
-
   @TypeGraphQL.Field(_type => Date, {
     nullable: true
   })
@@ -60,6 +55,11 @@ export class PostCreateWithoutTagsInput {
     nullable: true
   })
   Category?: CategoryCreateNestedOneWithoutPostInput | undefined;
+
+  @TypeGraphQL.Field(_type => UserCreateNestedOneWithoutPostInput, {
+    nullable: false
+  })
+  author!: UserCreateNestedOneWithoutPostInput;
 
   @TypeGraphQL.Field(_type => CommentCreateNestedManyWithoutPostInput, {
     nullable: true

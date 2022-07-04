@@ -9,6 +9,7 @@ import { PostOrderByRelationAggregateInput } from "../inputs/PostOrderByRelation
 import { PreferenceOrderByWithRelationInput } from "../inputs/PreferenceOrderByWithRelationInput";
 import { ResetPasswordOrderByRelationAggregateInput } from "../inputs/ResetPasswordOrderByRelationAggregateInput";
 import { SessionOrderByRelationAggregateInput } from "../inputs/SessionOrderByRelationAggregateInput";
+import { UserOrderByRelationAggregateInput } from "../inputs/UserOrderByRelationAggregateInput";
 import { SortOrder } from "../../enums/SortOrder";
 
 @TypeGraphQL.InputType("UserOrderByWithRelationInput", {
@@ -80,43 +81,58 @@ export class UserOrderByWithRelationInput {
   })
   updated_at?: "asc" | "desc" | undefined;
 
-  @TypeGraphQL.Field(_type => ResetPasswordOrderByRelationAggregateInput, {
-    nullable: true
-  })
-  ResetPassword?: ResetPasswordOrderByRelationAggregateInput | undefined;
-
-  @TypeGraphQL.Field(_type => PostOrderByRelationAggregateInput, {
-    nullable: true
-  })
-  Post?: PostOrderByRelationAggregateInput | undefined;
-
-  @TypeGraphQL.Field(_type => CommentOrderByRelationAggregateInput, {
-    nullable: true
-  })
-  Comment?: CommentOrderByRelationAggregateInput | undefined;
-
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
   nickname?: "asc" | "desc" | undefined;
 
-  @TypeGraphQL.Field(_type => LikeOrderByRelationAggregateInput, {
+  @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  Like?: LikeOrderByRelationAggregateInput | undefined;
-
-  @TypeGraphQL.Field(_type => PreferenceOrderByWithRelationInput, {
-    nullable: true
-  })
-  Preference?: PreferenceOrderByWithRelationInput | undefined;
+  follower_id?: "asc" | "desc" | undefined;
 
   @TypeGraphQL.Field(_type => AccountOrderByRelationAggregateInput, {
     nullable: true
   })
   Account?: AccountOrderByRelationAggregateInput | undefined;
 
+  @TypeGraphQL.Field(_type => CommentOrderByRelationAggregateInput, {
+    nullable: true
+  })
+  Comment?: CommentOrderByRelationAggregateInput | undefined;
+
+  @TypeGraphQL.Field(_type => LikeOrderByRelationAggregateInput, {
+    nullable: true
+  })
+  Like?: LikeOrderByRelationAggregateInput | undefined;
+
+  @TypeGraphQL.Field(_type => PostOrderByRelationAggregateInput, {
+    nullable: true
+  })
+  Post?: PostOrderByRelationAggregateInput | undefined;
+
+  @TypeGraphQL.Field(_type => PreferenceOrderByWithRelationInput, {
+    nullable: true
+  })
+  Preference?: PreferenceOrderByWithRelationInput | undefined;
+
+  @TypeGraphQL.Field(_type => ResetPasswordOrderByRelationAggregateInput, {
+    nullable: true
+  })
+  ResetPassword?: ResetPasswordOrderByRelationAggregateInput | undefined;
+
   @TypeGraphQL.Field(_type => SessionOrderByRelationAggregateInput, {
     nullable: true
   })
   Session?: SessionOrderByRelationAggregateInput | undefined;
+
+  @TypeGraphQL.Field(_type => UserOrderByRelationAggregateInput, {
+    nullable: true
+  })
+  followers?: UserOrderByRelationAggregateInput | undefined;
+
+  @TypeGraphQL.Field(_type => UserOrderByRelationAggregateInput, {
+    nullable: true
+  })
+  followed_users?: UserOrderByRelationAggregateInput | undefined;
 }

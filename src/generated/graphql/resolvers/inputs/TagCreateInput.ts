@@ -18,11 +18,6 @@ export class TagCreateInput {
   })
   name!: string;
 
-  @TypeGraphQL.Field(_type => String, {
-    nullable: true
-  })
-  description?: string | undefined;
-
   @TypeGraphQL.Field(_type => Date, {
     nullable: true
   })
@@ -32,6 +27,11 @@ export class TagCreateInput {
     nullable: true
   })
   updated_at?: Date | undefined;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  description?: string | undefined;
 
   @TypeGraphQL.Field(_type => PostCreateNestedManyWithoutTagsInput, {
     nullable: true

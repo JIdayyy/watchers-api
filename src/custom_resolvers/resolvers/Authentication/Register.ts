@@ -4,11 +4,11 @@ import bcrypt from 'bcryptjs';
 import { Arg, Ctx, Mutation, Resolver } from 'type-graphql';
 import Cookies from 'cookies';
 import { sign } from 'jsonwebtoken';
+import { UserWithoutCountAndPassword } from 'src/interfaces/user';
+import { GQLContext } from 'src/interfaces';
 import { User } from '../../../generated/graphql/models/User';
 import { RegisterInput } from '../../Inputs/register';
 import { Role } from '../../../generated/graphql';
-import { UserWithoutCountAndPassword } from 'src/interfaces/user';
-import { GQLContext } from 'src/interfaces';
 
 @Resolver()
 export class RegisterResolver {

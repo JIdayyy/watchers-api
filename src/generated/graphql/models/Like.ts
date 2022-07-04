@@ -19,12 +19,12 @@ export class Like {
   })
   post_id?: string | null;
 
-  post?: Post | null;
-
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
   user_id!: string;
+
+  post?: Post | null;
 
   user?: User;
 }

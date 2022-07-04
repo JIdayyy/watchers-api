@@ -68,10 +68,10 @@ export class Preference {
   })
   updated_at!: Date;
 
-  User?: User;
-
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
   userId!: string;
+
+  User?: User;
 }

@@ -41,11 +41,6 @@ export class PostCreateWithoutLikeInput {
   })
   isDraft?: boolean | undefined;
 
-  @TypeGraphQL.Field(_type => UserCreateNestedOneWithoutPostInput, {
-    nullable: false
-  })
-  author!: UserCreateNestedOneWithoutPostInput;
-
   @TypeGraphQL.Field(_type => Date, {
     nullable: true
   })
@@ -61,13 +56,18 @@ export class PostCreateWithoutLikeInput {
   })
   Category?: CategoryCreateNestedOneWithoutPostInput | undefined;
 
-  @TypeGraphQL.Field(_type => TagCreateNestedManyWithoutPostInput, {
-    nullable: true
+  @TypeGraphQL.Field(_type => UserCreateNestedOneWithoutPostInput, {
+    nullable: false
   })
-  Tags?: TagCreateNestedManyWithoutPostInput | undefined;
+  author!: UserCreateNestedOneWithoutPostInput;
 
   @TypeGraphQL.Field(_type => CommentCreateNestedManyWithoutPostInput, {
     nullable: true
   })
   Comment?: CommentCreateNestedManyWithoutPostInput | undefined;
+
+  @TypeGraphQL.Field(_type => TagCreateNestedManyWithoutPostInput, {
+    nullable: true
+  })
+  Tags?: TagCreateNestedManyWithoutPostInput | undefined;
 }

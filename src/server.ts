@@ -1,15 +1,15 @@
-import { customFieldResolvers } from './custom_resolvers/Fields/index';
 import { ApolloServer, ExpressContext } from 'apollo-server-express';
 import {
   ApolloServerPluginLandingPageGraphQLPlayground,
   ApolloServerPluginLandingPageDisabled,
 } from 'apollo-server-core';
 import { buildSchema } from 'type-graphql';
+import { useServer } from 'graphql-ws/lib/use/ws';
+import { WebSocketServer } from 'ws';
 import { resolvers } from './generated/graphql';
 import customAuthChecker from './utils/customAuthChecker';
 import { Resolve } from './config/authConfig';
-import { useServer } from 'graphql-ws/lib/use/ws';
-import { WebSocketServer } from 'ws';
+import { customFieldResolvers } from './custom_resolvers/Fields/index';
 import { graphQLContext, webSocketContext } from './context/context';
 import { httpServer } from './app';
 import { customResolvers } from './custom_resolvers/resolvers';

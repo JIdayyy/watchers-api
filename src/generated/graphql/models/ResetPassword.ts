@@ -13,8 +13,6 @@ export class ResetPassword {
   })
   id!: string;
 
-  user?: User;
-
   user_id?: string;
 
   token?: string;
@@ -22,4 +20,6 @@ export class ResetPassword {
   created_at?: Date;
 
   updated_at?: Date;
+
+  user?: User;
 }
