@@ -60,10 +60,9 @@ export const graphQLContext = async ({
   const cookies = new Cookies(req, res, {
     secure: process.env.NODE_ENV === 'production',
   });
+
   const token = cookies.get('token');
-  const unsafe = cookies.get('unsafe-token');
-  console.log('unsafe', unsafe);
-  console.log('token', token);
+
   if (process.env.NODE_ENV === 'test') {
     return {
       prisma,

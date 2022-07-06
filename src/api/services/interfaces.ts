@@ -17,4 +17,9 @@ export default interface ServiceHandler {
     string,
     { token: string }
   >;
+  checkToken: RequestHandler<
+    Record<string, never>,
+    { message: string },
+    { token: string }
+  >;
 }
