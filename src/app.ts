@@ -62,7 +62,6 @@ app.use(cors(corsOptions));
 // });
 
 // app.use(morgan('combined', { stream: accessLogStream }));
-
 app.use(restApi);
 
 app.use(errorHandler);
