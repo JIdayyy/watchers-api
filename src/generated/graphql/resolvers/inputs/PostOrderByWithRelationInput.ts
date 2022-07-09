@@ -4,8 +4,8 @@ import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { CategoryOrderByWithRelationInput } from "../inputs/CategoryOrderByWithRelationInput";
 import { CommentOrderByRelationAggregateInput } from "../inputs/CommentOrderByRelationAggregateInput";
-import { LikeOrderByRelationAggregateInput } from "../inputs/LikeOrderByRelationAggregateInput";
 import { TagOrderByRelationAggregateInput } from "../inputs/TagOrderByRelationAggregateInput";
+import { UserOrderByRelationAggregateInput } from "../inputs/UserOrderByRelationAggregateInput";
 import { UserOrderByWithRelationInput } from "../inputs/UserOrderByWithRelationInput";
 import { SortOrder } from "../../enums/SortOrder";
 
@@ -78,13 +78,13 @@ export class PostOrderByWithRelationInput {
   })
   Comment?: CommentOrderByRelationAggregateInput | undefined;
 
-  @TypeGraphQL.Field(_type => LikeOrderByRelationAggregateInput, {
-    nullable: true
-  })
-  Like?: LikeOrderByRelationAggregateInput | undefined;
-
   @TypeGraphQL.Field(_type => TagOrderByRelationAggregateInput, {
     nullable: true
   })
   Tags?: TagOrderByRelationAggregateInput | undefined;
+
+  @TypeGraphQL.Field(_type => UserOrderByRelationAggregateInput, {
+    nullable: true
+  })
+  User_likes?: UserOrderByRelationAggregateInput | undefined;
 }

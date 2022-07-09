@@ -4,7 +4,6 @@ import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
 import { Category } from "../models/Category";
 import { Comment } from "../models/Comment";
-import { Like } from "../models/Like";
 import { Tag } from "../models/Tag";
 import { User } from "../models/User";
 import { PostCount } from "../resolvers/outputs/PostCount";
@@ -69,9 +68,9 @@ export class Post {
 
   Comment?: Comment[];
 
-  Like?: Like[];
-
   Tags?: Tag[];
+
+  User_likes?: User[];
 
   @TypeGraphQL.Field(_type => PostCount, {
     nullable: true

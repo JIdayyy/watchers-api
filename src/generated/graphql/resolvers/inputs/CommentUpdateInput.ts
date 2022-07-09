@@ -2,8 +2,8 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { CommentUpdateManyWithoutRepliesInput } from "../inputs/CommentUpdateManyWithoutRepliesInput";
-import { CommentUpdateManyWithoutRepliesRelationInput } from "../inputs/CommentUpdateManyWithoutRepliesRelationInput";
+import { CommentUpdateManyWithoutComment_AInput } from "../inputs/CommentUpdateManyWithoutComment_AInput";
+import { CommentUpdateManyWithoutComment_BInput } from "../inputs/CommentUpdateManyWithoutComment_BInput";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
 import { PostUpdateOneRequiredWithoutCommentInput } from "../inputs/PostUpdateOneRequiredWithoutCommentInput";
@@ -54,13 +54,13 @@ export class CommentUpdateInput {
   })
   author?: UserUpdateOneRequiredWithoutCommentInput | undefined;
 
-  @TypeGraphQL.Field(_type => CommentUpdateManyWithoutRepliesRelationInput, {
+  @TypeGraphQL.Field(_type => CommentUpdateManyWithoutComment_AInput, {
     nullable: true
   })
-  replies?: CommentUpdateManyWithoutRepliesRelationInput | undefined;
+  Comment_B?: CommentUpdateManyWithoutComment_AInput | undefined;
 
-  @TypeGraphQL.Field(_type => CommentUpdateManyWithoutRepliesInput, {
+  @TypeGraphQL.Field(_type => CommentUpdateManyWithoutComment_BInput, {
     nullable: true
   })
-  repliesRelation?: CommentUpdateManyWithoutRepliesInput | undefined;
+  Comment_A?: CommentUpdateManyWithoutComment_BInput | undefined;
 }

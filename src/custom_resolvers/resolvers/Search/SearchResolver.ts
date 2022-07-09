@@ -14,9 +14,13 @@ export class SearchResolver {
       where: {
         Tags: {
           some: {
-            name: {
-              in: data.searchValue,
-            },
+            AND: [
+              {
+                name: {
+                  startsWith: data.searchValue,
+                },
+              },
+            ],
           },
         },
       },

@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { GQLContext } from 'src/interfaces';
 import { Ctx, FieldResolver, Resolver, Root } from 'type-graphql';
@@ -11,12 +12,19 @@ export class LikeCountResolver {
     @Root() post: Post,
     @Ctx() { prisma }: GQLContext
   ): Promise<{ count: number }> {
-    const likeCount = await prisma.like.count({
+    const likeCount = await prisma.post.findUnique({
       where: {
-        post_id: post.id,
+        id: post.id,
+      },
+      select: {
+        _count: {
+          select: {
+            User_likes: true,
+          },
+        },
       },
     });
 
-    return { count: likeCount };
+    return { count: likeCount?._count.User_likes as number };
   }
 }

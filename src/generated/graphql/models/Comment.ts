@@ -54,9 +54,9 @@ export class Comment {
 
   author?: User;
 
-  replies?: Comment[];
+  Comment_B?: Comment[];
 
-  repliesRelation?: Comment[];
+  Comment_A?: Comment[];
 
   @TypeGraphQL.Field(_type => CommentCount, {
     nullable: true

@@ -6,10 +6,10 @@ import { BoolFieldUpdateOperationsInput } from "../inputs/BoolFieldUpdateOperati
 import { CategoryUpdateOneWithoutPostInput } from "../inputs/CategoryUpdateOneWithoutPostInput";
 import { CommentUpdateManyWithoutPostInput } from "../inputs/CommentUpdateManyWithoutPostInput";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
-import { LikeUpdateManyWithoutPostInput } from "../inputs/LikeUpdateManyWithoutPostInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 import { TagUpdateManyWithoutPostInput } from "../inputs/TagUpdateManyWithoutPostInput";
+import { UserUpdateManyWithoutPost_likesInput } from "../inputs/UserUpdateManyWithoutPost_likesInput";
 
 @TypeGraphQL.InputType("PostUpdateWithoutAuthorInput", {
   isAbstract: true
@@ -65,13 +65,13 @@ export class PostUpdateWithoutAuthorInput {
   })
   Comment?: CommentUpdateManyWithoutPostInput | undefined;
 
-  @TypeGraphQL.Field(_type => LikeUpdateManyWithoutPostInput, {
-    nullable: true
-  })
-  Like?: LikeUpdateManyWithoutPostInput | undefined;
-
   @TypeGraphQL.Field(_type => TagUpdateManyWithoutPostInput, {
     nullable: true
   })
   Tags?: TagUpdateManyWithoutPostInput | undefined;
+
+  @TypeGraphQL.Field(_type => UserUpdateManyWithoutPost_likesInput, {
+    nullable: true
+  })
+  User_likes?: UserUpdateManyWithoutPost_likesInput | undefined;
 }
