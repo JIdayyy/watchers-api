@@ -15,10 +15,10 @@ export class PostCount {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: false
   })
-  Like!: number;
+  Tags!: number;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: false
   })
-  Tags!: number;
+  User_likes!: number;
 }

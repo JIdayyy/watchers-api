@@ -13,10 +13,12 @@
     "build": "npx prisma generate && tsc",
     "deploy": "npm run build && npx prisma migrate deploy && node ./dist/src/index.js",
     "deploytests": "npm run build && dotenv -e .env.test node ./dist/src/index.js",
-    "test": "dotenv -e .env.test jest --watch && dotenv -e .env.test -- npx prisma migrate reset -f",
+    "test": "dotenv -e .env.test jest --watch",
     "migrate:postgres": "dotenv -e .env.test -- npx prisma migrate dev --name postgres-init && dotenv -e .env -- npx prisma migrate dev --name postgres-init",
     "reset:postgres": "dotenv -e .env.test -- npx prisma migrate reset -f && dotenv -e .env -- npx prisma migrate reset -f",
     "reset:tests": "dotenv -e .env.test  npx prisma migrate reset -f",
+    "migrate:tests": "dotenv -e .env.test -- npx prisma migrate dev",
+    "push:tests": "dotenv -e .env.test -- npx prisma db push",
     "studio:test": "dotenv -e .env.test -- npx prisma studio"
   },
   "_moduleDirectories": [

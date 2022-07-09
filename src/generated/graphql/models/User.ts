@@ -4,7 +4,6 @@ import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
 import { Account } from "../models/Account";
 import { Comment } from "../models/Comment";
-import { Like } from "../models/Like";
 import { Post } from "../models/Post";
 import { Preference } from "../models/Preference";
 import { ResetPassword } from "../models/ResetPassword";
@@ -92,8 +91,6 @@ export class User {
 
   Comment?: Comment[];
 
-  Like?: Like[];
-
   Post?: Post[];
 
   Preference?: Preference | null;
@@ -102,9 +99,11 @@ export class User {
 
   Session?: Session[];
 
-  followers?: User[];
+  User_B?: User[];
 
-  followed_users?: User[];
+  User_A?: User[];
+
+  Post_likes?: Post[];
 
   @TypeGraphQL.Field(_type => UserCount, {
     nullable: true

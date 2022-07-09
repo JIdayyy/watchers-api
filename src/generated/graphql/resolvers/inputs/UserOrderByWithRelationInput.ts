@@ -4,7 +4,6 @@ import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { AccountOrderByRelationAggregateInput } from "../inputs/AccountOrderByRelationAggregateInput";
 import { CommentOrderByRelationAggregateInput } from "../inputs/CommentOrderByRelationAggregateInput";
-import { LikeOrderByRelationAggregateInput } from "../inputs/LikeOrderByRelationAggregateInput";
 import { PostOrderByRelationAggregateInput } from "../inputs/PostOrderByRelationAggregateInput";
 import { PreferenceOrderByWithRelationInput } from "../inputs/PreferenceOrderByWithRelationInput";
 import { ResetPasswordOrderByRelationAggregateInput } from "../inputs/ResetPasswordOrderByRelationAggregateInput";
@@ -101,11 +100,6 @@ export class UserOrderByWithRelationInput {
   })
   Comment?: CommentOrderByRelationAggregateInput | undefined;
 
-  @TypeGraphQL.Field(_type => LikeOrderByRelationAggregateInput, {
-    nullable: true
-  })
-  Like?: LikeOrderByRelationAggregateInput | undefined;
-
   @TypeGraphQL.Field(_type => PostOrderByRelationAggregateInput, {
     nullable: true
   })
@@ -129,10 +123,15 @@ export class UserOrderByWithRelationInput {
   @TypeGraphQL.Field(_type => UserOrderByRelationAggregateInput, {
     nullable: true
   })
-  followers?: UserOrderByRelationAggregateInput | undefined;
+  User_B?: UserOrderByRelationAggregateInput | undefined;
 
   @TypeGraphQL.Field(_type => UserOrderByRelationAggregateInput, {
     nullable: true
   })
-  followed_users?: UserOrderByRelationAggregateInput | undefined;
+  User_A?: UserOrderByRelationAggregateInput | undefined;
+
+  @TypeGraphQL.Field(_type => PostOrderByRelationAggregateInput, {
+    nullable: true
+  })
+  Post_likes?: PostOrderByRelationAggregateInput | undefined;
 }

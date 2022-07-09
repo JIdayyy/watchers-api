@@ -1,7 +1,6 @@
 export { AccountScalarFieldEnum } from "./AccountScalarFieldEnum";
 export { CategoryScalarFieldEnum } from "./CategoryScalarFieldEnum";
 export { CommentScalarFieldEnum } from "./CommentScalarFieldEnum";
-export { LikeScalarFieldEnum } from "./LikeScalarFieldEnum";
 export { PostScalarFieldEnum } from "./PostScalarFieldEnum";
 export { PreferenceScalarFieldEnum } from "./PreferenceScalarFieldEnum";
 export { QueryMode } from "./QueryMode";

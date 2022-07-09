@@ -7,7 +7,6 @@ import { BoolFilter } from "../inputs/BoolFilter";
 import { CommentListRelationFilter } from "../inputs/CommentListRelationFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { EnumRoleFilter } from "../inputs/EnumRoleFilter";
-import { LikeListRelationFilter } from "../inputs/LikeListRelationFilter";
 import { PostListRelationFilter } from "../inputs/PostListRelationFilter";
 import { PreferenceRelationFilter } from "../inputs/PreferenceRelationFilter";
 import { ResetPasswordListRelationFilter } from "../inputs/ResetPasswordListRelationFilter";
@@ -120,11 +119,6 @@ export class UserWhereInput {
   })
   Comment?: CommentListRelationFilter | undefined;
 
-  @TypeGraphQL.Field(_type => LikeListRelationFilter, {
-    nullable: true
-  })
-  Like?: LikeListRelationFilter | undefined;
-
   @TypeGraphQL.Field(_type => PostListRelationFilter, {
     nullable: true
   })
@@ -148,10 +142,15 @@ export class UserWhereInput {
   @TypeGraphQL.Field(_type => UserListRelationFilter, {
     nullable: true
   })
-  followers?: UserListRelationFilter | undefined;
+  User_B?: UserListRelationFilter | undefined;
 
   @TypeGraphQL.Field(_type => UserListRelationFilter, {
     nullable: true
   })
-  followed_users?: UserListRelationFilter | undefined;
+  User_A?: UserListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => PostListRelationFilter, {
+    nullable: true
+  })
+  Post_likes?: PostListRelationFilter | undefined;
 }

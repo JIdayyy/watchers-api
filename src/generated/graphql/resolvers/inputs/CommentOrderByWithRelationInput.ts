@@ -64,10 +64,10 @@ export class CommentOrderByWithRelationInput {
   @TypeGraphQL.Field(_type => CommentOrderByRelationAggregateInput, {
     nullable: true
   })
-  replies?: CommentOrderByRelationAggregateInput | undefined;
+  Comment_B?: CommentOrderByRelationAggregateInput | undefined;
 
   @TypeGraphQL.Field(_type => CommentOrderByRelationAggregateInput, {
     nullable: true
   })
-  repliesRelation?: CommentOrderByRelationAggregateInput | undefined;
+  Comment_A?: CommentOrderByRelationAggregateInput | undefined;
 }

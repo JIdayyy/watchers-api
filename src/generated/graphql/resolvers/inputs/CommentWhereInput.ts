@@ -81,10 +81,10 @@ export class CommentWhereInput {
   @TypeGraphQL.Field(_type => CommentListRelationFilter, {
     nullable: true
   })
-  replies?: CommentListRelationFilter | undefined;
+  Comment_B?: CommentListRelationFilter | undefined;
 
   @TypeGraphQL.Field(_type => CommentListRelationFilter, {
     nullable: true
   })
-  repliesRelation?: CommentListRelationFilter | undefined;
+  Comment_A?: CommentListRelationFilter | undefined;
 }

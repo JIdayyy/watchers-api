@@ -1,8 +1,8 @@
 export { UserAccountArgs } from "./UserAccountArgs";
 export { UserCommentArgs } from "./UserCommentArgs";
-export { UserFollowed_usersArgs } from "./UserFollowed_usersArgs";
-export { UserFollowersArgs } from "./UserFollowersArgs";
-export { UserLikeArgs } from "./UserLikeArgs";
 export { UserPostArgs } from "./UserPostArgs";
+export { UserPost_likesArgs } from "./UserPost_likesArgs";
 export { UserResetPasswordArgs } from "./UserResetPasswordArgs";
 export { UserSessionArgs } from "./UserSessionArgs";
+export { UserUser_AArgs } from "./UserUser_AArgs";
+export { UserUser_BArgs } from "./UserUser_BArgs";

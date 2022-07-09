@@ -10,10 +10,10 @@ export class CommentCount {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: false
   })
-  replies!: number;
+  Comment_B!: number;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: false
   })
-  repliesRelation!: number;
+  Comment_A!: number;
 }

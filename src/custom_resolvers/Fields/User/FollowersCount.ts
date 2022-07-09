@@ -18,10 +18,10 @@ export class FollowersCountResolver {
       },
       select: {
         id: true,
-        followers: true,
+        User_B: true,
         _count: {
           select: {
-            followers: true,
+            User_B: true,
           },
         },
       },
@@ -31,13 +31,13 @@ export class FollowersCountResolver {
       if (!contextUser) {
         return false;
       }
-      return !!followersCount?.followers.filter(
+      return !!followersCount?.User_B.filter(
         (follower) => follower.id === contextUser.id
       ).length;
     };
 
     return {
-      count: followersCount?._count.followers as number,
+      count: followersCount?._count.User_B as number,
       isFollowing: isFollowing(),
     };
   }

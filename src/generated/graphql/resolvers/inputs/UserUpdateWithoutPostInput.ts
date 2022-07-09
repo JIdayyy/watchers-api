@@ -7,14 +7,14 @@ import { BoolFieldUpdateOperationsInput } from "../inputs/BoolFieldUpdateOperati
 import { CommentUpdateManyWithoutAuthorInput } from "../inputs/CommentUpdateManyWithoutAuthorInput";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { EnumRoleFieldUpdateOperationsInput } from "../inputs/EnumRoleFieldUpdateOperationsInput";
-import { LikeUpdateManyWithoutUserInput } from "../inputs/LikeUpdateManyWithoutUserInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
+import { PostUpdateManyWithoutUser_likesInput } from "../inputs/PostUpdateManyWithoutUser_likesInput";
 import { PreferenceUpdateOneWithoutUserInput } from "../inputs/PreferenceUpdateOneWithoutUserInput";
 import { ResetPasswordUpdateManyWithoutUserInput } from "../inputs/ResetPasswordUpdateManyWithoutUserInput";
 import { SessionUpdateManyWithoutUserInput } from "../inputs/SessionUpdateManyWithoutUserInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
-import { UserUpdateManyWithoutFollowed_usersInput } from "../inputs/UserUpdateManyWithoutFollowed_usersInput";
-import { UserUpdateManyWithoutFollowersInput } from "../inputs/UserUpdateManyWithoutFollowersInput";
+import { UserUpdateManyWithoutUser_AInput } from "../inputs/UserUpdateManyWithoutUser_AInput";
+import { UserUpdateManyWithoutUser_BInput } from "../inputs/UserUpdateManyWithoutUser_BInput";
 
 @TypeGraphQL.InputType("UserUpdateWithoutPostInput", {
   isAbstract: true
@@ -105,11 +105,6 @@ export class UserUpdateWithoutPostInput {
   })
   Comment?: CommentUpdateManyWithoutAuthorInput | undefined;
 
-  @TypeGraphQL.Field(_type => LikeUpdateManyWithoutUserInput, {
-    nullable: true
-  })
-  Like?: LikeUpdateManyWithoutUserInput | undefined;
-
   @TypeGraphQL.Field(_type => PreferenceUpdateOneWithoutUserInput, {
     nullable: true
   })
@@ -125,13 +120,18 @@ export class UserUpdateWithoutPostInput {
   })
   Session?: SessionUpdateManyWithoutUserInput | undefined;
 
-  @TypeGraphQL.Field(_type => UserUpdateManyWithoutFollowed_usersInput, {
+  @TypeGraphQL.Field(_type => UserUpdateManyWithoutUser_AInput, {
     nullable: true
   })
-  followers?: UserUpdateManyWithoutFollowed_usersInput | undefined;
+  User_B?: UserUpdateManyWithoutUser_AInput | undefined;
 
-  @TypeGraphQL.Field(_type => UserUpdateManyWithoutFollowersInput, {
+  @TypeGraphQL.Field(_type => UserUpdateManyWithoutUser_BInput, {
     nullable: true
   })
-  followed_users?: UserUpdateManyWithoutFollowersInput | undefined;
+  User_A?: UserUpdateManyWithoutUser_BInput | undefined;
+
+  @TypeGraphQL.Field(_type => PostUpdateManyWithoutUser_likesInput, {
+    nullable: true
+  })
+  Post_likes?: PostUpdateManyWithoutUser_likesInput | undefined;
 }
