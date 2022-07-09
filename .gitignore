@@ -14,3 +14,4 @@ dist
 /logs
 
 access.txt
+.env.test
