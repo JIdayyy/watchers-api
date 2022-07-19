@@ -46,4 +46,14 @@ export class UserCount {
     nullable: false
   })
   Post_likes!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
+  forum_articles!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
+  topics_moderated!: number;
 }

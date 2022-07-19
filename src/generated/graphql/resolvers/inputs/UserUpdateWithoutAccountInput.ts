@@ -2,6 +2,7 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
+import { ArticleUpdateManyWithoutAuthorInput } from "../inputs/ArticleUpdateManyWithoutAuthorInput";
 import { BoolFieldUpdateOperationsInput } from "../inputs/BoolFieldUpdateOperationsInput";
 import { CommentUpdateManyWithoutAuthorInput } from "../inputs/CommentUpdateManyWithoutAuthorInput";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
@@ -13,6 +14,7 @@ import { PreferenceUpdateOneWithoutUserInput } from "../inputs/PreferenceUpdateO
 import { ResetPasswordUpdateManyWithoutUserInput } from "../inputs/ResetPasswordUpdateManyWithoutUserInput";
 import { SessionUpdateManyWithoutUserInput } from "../inputs/SessionUpdateManyWithoutUserInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
+import { TopicUpdateManyWithoutModeratorsInput } from "../inputs/TopicUpdateManyWithoutModeratorsInput";
 import { UserUpdateManyWithoutUser_AInput } from "../inputs/UserUpdateManyWithoutUser_AInput";
 import { UserUpdateManyWithoutUser_BInput } from "../inputs/UserUpdateManyWithoutUser_BInput";
 
@@ -134,4 +136,14 @@ export class UserUpdateWithoutAccountInput {
     nullable: true
   })
   Post_likes?: PostUpdateManyWithoutUser_likesInput | undefined;
+
+  @TypeGraphQL.Field(_type => ArticleUpdateManyWithoutAuthorInput, {
+    nullable: true
+  })
+  forum_articles?: ArticleUpdateManyWithoutAuthorInput | undefined;
+
+  @TypeGraphQL.Field(_type => TopicUpdateManyWithoutModeratorsInput, {
+    nullable: true
+  })
+  topics_moderated?: TopicUpdateManyWithoutModeratorsInput | undefined;
 }

@@ -7,6 +7,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+generator typegraphql {
+  provider = "typegraphql-prisma"
+  output   = "../src/generated/graphql"
+}
+
+ 
 model Account {
   id                String  @id @default(cuid())
   userId            String
@@ -67,6 +73,8 @@ model User {
   User_B        User[]          @relation("following")
   User_A        User[]          @relation("following")
   Post_likes    Post[]          @relation("likes")
+  forum_articles Article[]    
+  topics_moderated Topic[]
 }
 
 model Preference {
@@ -135,6 +143,55 @@ model Category {
   updated_at DateTime @updatedAt
   Post       Post[]
 }
+
+
+model Forum {
+  id         String   @id @default(uuid())
+  name       String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  forum_categories ForumCategory[]
+  roles      Role[]
+  is_disabled Boolean @default(false)
+}
+
+
+model ForumCategory {
+  id         String   @id @default(uuid())
+  icon       String?
+  name       String
+  description String?
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  forum     Forum     @relation(fields: [forum_id], references: [id], onDelete: Cascade)
+  forum_id  String    
+  topics    Topic[]
+  is_disabled Boolean @default(false)
+}
+
+model Topic {
+  id         String   @id @default(uuid())
+  name       String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  forum_category ForumCategory    @relation(fields: [id], references: [id], onDelete: Cascade)
+  articles  Article[]
+  is_disabled Boolean @default(false)
+  moderators User[] 
+}
+
+model Article {
+  id         String   @id @default(uuid())
+  name       String
+  content    String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  topic     Topic     @relation(fields: [id], references: [id], onDelete: Cascade)
+  author    User      @relation(fields: [author_id], references: [id], onDelete: Cascade)
+  author_id String
+  is_disabled Boolean @default(false)
+}
+
 
 model ResetPassword {
   id         String   @id @default(uuid())

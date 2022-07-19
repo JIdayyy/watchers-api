@@ -1,10 +1,14 @@
 export { AccountCrudResolver } from "./Account/AccountCrudResolver";
+export { ArticleCrudResolver } from "./Article/ArticleCrudResolver";
 export { CategoryCrudResolver } from "./Category/CategoryCrudResolver";
 export { CommentCrudResolver } from "./Comment/CommentCrudResolver";
+export { ForumCrudResolver } from "./Forum/ForumCrudResolver";
+export { ForumCategoryCrudResolver } from "./ForumCategory/ForumCategoryCrudResolver";
 export { PostCrudResolver } from "./Post/PostCrudResolver";
 export { PreferenceCrudResolver } from "./Preference/PreferenceCrudResolver";
 export { ResetPasswordCrudResolver } from "./ResetPassword/ResetPasswordCrudResolver";
 export { SessionCrudResolver } from "./Session/SessionCrudResolver";
 export { TagCrudResolver } from "./Tag/TagCrudResolver";
+export { TopicCrudResolver } from "./Topic/TopicCrudResolver";
 export { UserCrudResolver } from "./User/UserCrudResolver";
 export { VerificationTokenCrudResolver } from "./VerificationToken/VerificationTokenCrudResolver";

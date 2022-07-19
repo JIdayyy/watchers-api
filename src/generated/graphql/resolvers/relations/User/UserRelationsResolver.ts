@@ -1,17 +1,21 @@
 import * as TypeGraphQL from "type-graphql";
 import { Account } from "../../../models/Account";
+import { Article } from "../../../models/Article";
 import { Comment } from "../../../models/Comment";
 import { Post } from "../../../models/Post";
 import { Preference } from "../../../models/Preference";
 import { ResetPassword } from "../../../models/ResetPassword";
 import { Session } from "../../../models/Session";
+import { Topic } from "../../../models/Topic";
 import { User } from "../../../models/User";
 import { UserAccountArgs } from "./args/UserAccountArgs";
 import { UserCommentArgs } from "./args/UserCommentArgs";
+import { UserForum_articlesArgs } from "./args/UserForum_articlesArgs";
 import { UserPostArgs } from "./args/UserPostArgs";
 import { UserPost_likesArgs } from "./args/UserPost_likesArgs";
 import { UserResetPasswordArgs } from "./args/UserResetPasswordArgs";
 import { UserSessionArgs } from "./args/UserSessionArgs";
+import { UserTopics_moderatedArgs } from "./args/UserTopics_moderatedArgs";
 import { UserUser_AArgs } from "./args/UserUser_AArgs";
 import { UserUser_BArgs } from "./args/UserUser_BArgs";
 import { transformFields, getPrismaFromContext, transformCountFieldIntoSelectRelationsCount } from "../../../helpers";
@@ -115,5 +119,27 @@ export class UserRelationsResolver {
         id: user.id,
       },
     }).Post_likes(args);
+  }
+
+  @TypeGraphQL.FieldResolver(_type => [Article], {
+    nullable: false
+  })
+  async forum_articles(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserForum_articlesArgs): Promise<Article[]> {
+    return getPrismaFromContext(ctx).user.findUnique({
+      where: {
+        id: user.id,
+      },
+    }).forum_articles(args);
+  }
+
+  @TypeGraphQL.FieldResolver(_type => [Topic], {
+    nullable: false
+  })
+  async topics_moderated(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserTopics_moderatedArgs): Promise<Topic[]> {
+    return getPrismaFromContext(ctx).user.findUnique({
+      where: {
+        id: user.id,
+      },
+    }).topics_moderated(args);
   }
 }

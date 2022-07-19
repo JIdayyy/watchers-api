@@ -3,11 +3,13 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { AccountCreateNestedManyWithoutUserInput } from "../inputs/AccountCreateNestedManyWithoutUserInput";
+import { ArticleCreateNestedManyWithoutAuthorInput } from "../inputs/ArticleCreateNestedManyWithoutAuthorInput";
 import { CommentCreateNestedManyWithoutAuthorInput } from "../inputs/CommentCreateNestedManyWithoutAuthorInput";
 import { PostCreateNestedManyWithoutAuthorInput } from "../inputs/PostCreateNestedManyWithoutAuthorInput";
 import { PreferenceCreateNestedOneWithoutUserInput } from "../inputs/PreferenceCreateNestedOneWithoutUserInput";
 import { ResetPasswordCreateNestedManyWithoutUserInput } from "../inputs/ResetPasswordCreateNestedManyWithoutUserInput";
 import { SessionCreateNestedManyWithoutUserInput } from "../inputs/SessionCreateNestedManyWithoutUserInput";
+import { TopicCreateNestedManyWithoutModeratorsInput } from "../inputs/TopicCreateNestedManyWithoutModeratorsInput";
 import { UserCreateNestedManyWithoutUser_AInput } from "../inputs/UserCreateNestedManyWithoutUser_AInput";
 import { UserCreateNestedManyWithoutUser_BInput } from "../inputs/UserCreateNestedManyWithoutUser_BInput";
 import { Role } from "../../enums/Role";
@@ -130,4 +132,14 @@ export class UserCreateWithoutPost_likesInput {
     nullable: true
   })
   User_A?: UserCreateNestedManyWithoutUser_BInput | undefined;
+
+  @TypeGraphQL.Field(_type => ArticleCreateNestedManyWithoutAuthorInput, {
+    nullable: true
+  })
+  forum_articles?: ArticleCreateNestedManyWithoutAuthorInput | undefined;
+
+  @TypeGraphQL.Field(_type => TopicCreateNestedManyWithoutModeratorsInput, {
+    nullable: true
+  })
+  topics_moderated?: TopicCreateNestedManyWithoutModeratorsInput | undefined;
 }

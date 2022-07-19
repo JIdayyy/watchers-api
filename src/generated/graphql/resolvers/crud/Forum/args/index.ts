@@ -1,0 +1,12 @@
+export { AggregateForumArgs } from "./AggregateForumArgs";
+export { CreateForumArgs } from "./CreateForumArgs";
+export { CreateManyForumArgs } from "./CreateManyForumArgs";
+export { DeleteForumArgs } from "./DeleteForumArgs";
+export { DeleteManyForumArgs } from "./DeleteManyForumArgs";
+export { FindFirstForumArgs } from "./FindFirstForumArgs";
+export { FindManyForumArgs } from "./FindManyForumArgs";
+export { FindUniqueForumArgs } from "./FindUniqueForumArgs";
+export { GroupByForumArgs } from "./GroupByForumArgs";
+export { UpdateForumArgs } from "./UpdateForumArgs";
+export { UpdateManyForumArgs } from "./UpdateManyForumArgs";
+export { UpsertForumArgs } from "./UpsertForumArgs";

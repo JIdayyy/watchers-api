@@ -3,11 +3,13 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { AccountOrderByRelationAggregateInput } from "../inputs/AccountOrderByRelationAggregateInput";
+import { ArticleOrderByRelationAggregateInput } from "../inputs/ArticleOrderByRelationAggregateInput";
 import { CommentOrderByRelationAggregateInput } from "../inputs/CommentOrderByRelationAggregateInput";
 import { PostOrderByRelationAggregateInput } from "../inputs/PostOrderByRelationAggregateInput";
 import { PreferenceOrderByWithRelationInput } from "../inputs/PreferenceOrderByWithRelationInput";
 import { ResetPasswordOrderByRelationAggregateInput } from "../inputs/ResetPasswordOrderByRelationAggregateInput";
 import { SessionOrderByRelationAggregateInput } from "../inputs/SessionOrderByRelationAggregateInput";
+import { TopicOrderByRelationAggregateInput } from "../inputs/TopicOrderByRelationAggregateInput";
 import { UserOrderByRelationAggregateInput } from "../inputs/UserOrderByRelationAggregateInput";
 import { SortOrder } from "../../enums/SortOrder";
 
@@ -134,4 +136,14 @@ export class UserOrderByWithRelationInput {
     nullable: true
   })
   Post_likes?: PostOrderByRelationAggregateInput | undefined;
+
+  @TypeGraphQL.Field(_type => ArticleOrderByRelationAggregateInput, {
+    nullable: true
+  })
+  forum_articles?: ArticleOrderByRelationAggregateInput | undefined;
+
+  @TypeGraphQL.Field(_type => TopicOrderByRelationAggregateInput, {
+    nullable: true
+  })
+  topics_moderated?: TopicOrderByRelationAggregateInput | undefined;
 }

@@ -3,11 +3,13 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
 import { Account } from "../models/Account";
+import { Article } from "../models/Article";
 import { Comment } from "../models/Comment";
 import { Post } from "../models/Post";
 import { Preference } from "../models/Preference";
 import { ResetPassword } from "../models/ResetPassword";
 import { Session } from "../models/Session";
+import { Topic } from "../models/Topic";
 import { Role } from "../enums/Role";
 import { UserCount } from "../resolvers/outputs/UserCount";
 
@@ -104,6 +106,10 @@ export class User {
   User_A?: User[];
 
   Post_likes?: Post[];
+
+  forum_articles?: Article[];
+
+  topics_moderated?: Topic[];
 
   @TypeGraphQL.Field(_type => UserCount, {
     nullable: true

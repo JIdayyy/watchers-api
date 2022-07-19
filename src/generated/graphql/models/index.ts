@@ -1,10 +1,14 @@
 export { Account } from "./Account";
+export { Article } from "./Article";
 export { Category } from "./Category";
 export { Comment } from "./Comment";
+export { Forum } from "./Forum";
+export { ForumCategory } from "./ForumCategory";
 export { Post } from "./Post";
 export { Preference } from "./Preference";
 export { ResetPassword } from "./ResetPassword";
 export { Session } from "./Session";
 export { Tag } from "./Tag";
+export { Topic } from "./Topic";
 export { User } from "./User";
 export { VerificationToken } from "./VerificationToken";

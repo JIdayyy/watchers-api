@@ -3,6 +3,7 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { AccountListRelationFilter } from "../inputs/AccountListRelationFilter";
+import { ArticleListRelationFilter } from "../inputs/ArticleListRelationFilter";
 import { BoolFilter } from "../inputs/BoolFilter";
 import { CommentListRelationFilter } from "../inputs/CommentListRelationFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
@@ -13,6 +14,7 @@ import { ResetPasswordListRelationFilter } from "../inputs/ResetPasswordListRela
 import { SessionListRelationFilter } from "../inputs/SessionListRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
+import { TopicListRelationFilter } from "../inputs/TopicListRelationFilter";
 import { UserListRelationFilter } from "../inputs/UserListRelationFilter";
 
 @TypeGraphQL.InputType("UserWhereInput", {
@@ -153,4 +155,14 @@ export class UserWhereInput {
     nullable: true
   })
   Post_likes?: PostListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => ArticleListRelationFilter, {
+    nullable: true
+  })
+  forum_articles?: ArticleListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => TopicListRelationFilter, {
+    nullable: true
+  })
+  topics_moderated?: TopicListRelationFilter | undefined;
 }

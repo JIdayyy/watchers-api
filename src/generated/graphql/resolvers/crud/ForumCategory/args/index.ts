@@ -1,0 +1,12 @@
+export { AggregateForumCategoryArgs } from "./AggregateForumCategoryArgs";
+export { CreateForumCategoryArgs } from "./CreateForumCategoryArgs";
+export { CreateManyForumCategoryArgs } from "./CreateManyForumCategoryArgs";
+export { DeleteForumCategoryArgs } from "./DeleteForumCategoryArgs";
+export { DeleteManyForumCategoryArgs } from "./DeleteManyForumCategoryArgs";
+export { FindFirstForumCategoryArgs } from "./FindFirstForumCategoryArgs";
+export { FindManyForumCategoryArgs } from "./FindManyForumCategoryArgs";
+export { FindUniqueForumCategoryArgs } from "./FindUniqueForumCategoryArgs";
+export { GroupByForumCategoryArgs } from "./GroupByForumCategoryArgs";
+export { UpdateForumCategoryArgs } from "./UpdateForumCategoryArgs";
+export { UpdateManyForumCategoryArgs } from "./UpdateManyForumCategoryArgs";
+export { UpsertForumCategoryArgs } from "./UpsertForumCategoryArgs";

@@ -1,6 +1,9 @@
 export { AccountScalarFieldEnum } from "./AccountScalarFieldEnum";
+export { ArticleScalarFieldEnum } from "./ArticleScalarFieldEnum";
 export { CategoryScalarFieldEnum } from "./CategoryScalarFieldEnum";
 export { CommentScalarFieldEnum } from "./CommentScalarFieldEnum";
+export { ForumCategoryScalarFieldEnum } from "./ForumCategoryScalarFieldEnum";
+export { ForumScalarFieldEnum } from "./ForumScalarFieldEnum";
 export { PostScalarFieldEnum } from "./PostScalarFieldEnum";
 export { PreferenceScalarFieldEnum } from "./PreferenceScalarFieldEnum";
 export { QueryMode } from "./QueryMode";
@@ -9,5 +12,6 @@ export { Role } from "./Role";
 export { SessionScalarFieldEnum } from "./SessionScalarFieldEnum";
 export { SortOrder } from "./SortOrder";
 export { TagScalarFieldEnum } from "./TagScalarFieldEnum";
+export { TopicScalarFieldEnum } from "./TopicScalarFieldEnum";
 export { UserScalarFieldEnum } from "./UserScalarFieldEnum";
 export { VerificationTokenScalarFieldEnum } from "./VerificationTokenScalarFieldEnum";

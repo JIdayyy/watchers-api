@@ -1,8 +1,12 @@
 export { AccountRelationsResolver } from "./Account/AccountRelationsResolver";
+export { ArticleRelationsResolver } from "./Article/ArticleRelationsResolver";
 export { CategoryRelationsResolver } from "./Category/CategoryRelationsResolver";
 export { CommentRelationsResolver } from "./Comment/CommentRelationsResolver";
+export { ForumRelationsResolver } from "./Forum/ForumRelationsResolver";
+export { ForumCategoryRelationsResolver } from "./ForumCategory/ForumCategoryRelationsResolver";
 export { PostRelationsResolver } from "./Post/PostRelationsResolver";
 export { PreferenceRelationsResolver } from "./Preference/PreferenceRelationsResolver";
 export { SessionRelationsResolver } from "./Session/SessionRelationsResolver";
 export { TagRelationsResolver } from "./Tag/TagRelationsResolver";
+export { TopicRelationsResolver } from "./Topic/TopicRelationsResolver";
 export { UserRelationsResolver } from "./User/UserRelationsResolver";

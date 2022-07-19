@@ -1,0 +1,12 @@
+export { AggregateArticleArgs } from "./AggregateArticleArgs";
+export { CreateArticleArgs } from "./CreateArticleArgs";
+export { CreateManyArticleArgs } from "./CreateManyArticleArgs";
+export { DeleteArticleArgs } from "./DeleteArticleArgs";
+export { DeleteManyArticleArgs } from "./DeleteManyArticleArgs";
+export { FindFirstArticleArgs } from "./FindFirstArticleArgs";
+export { FindManyArticleArgs } from "./FindManyArticleArgs";
+export { FindUniqueArticleArgs } from "./FindUniqueArticleArgs";
+export { GroupByArticleArgs } from "./GroupByArticleArgs";
+export { UpdateArticleArgs } from "./UpdateArticleArgs";
+export { UpdateManyArticleArgs } from "./UpdateManyArticleArgs";
+export { UpsertArticleArgs } from "./UpsertArticleArgs";
