@@ -35,5 +35,5 @@ export class FindFirstPostArgs {
   @TypeGraphQL.Field(_type => [PostScalarFieldEnum], {
     nullable: true
   })
-  distinct?: Array<"id" | "slug" | "title" | "cover_picture" | "content" | "isDraft" | "created_at" | "updated_at" | "userId" | "categoryId"> | undefined;
+  distinct?: Array<"id" | "slug" | "title" | "cover_picture" | "content" | "isDraft" | "created_at" | "is_disabled" | "updated_at" | "userId" | "categoryId"> | undefined;
 }

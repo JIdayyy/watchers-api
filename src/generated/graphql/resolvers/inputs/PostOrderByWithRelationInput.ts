@@ -51,6 +51,11 @@ export class PostOrderByWithRelationInput {
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
+  is_disabled?: "asc" | "desc" | undefined;
+
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true
+  })
   updated_at?: "asc" | "desc" | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {

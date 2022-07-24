@@ -61,6 +61,11 @@ export class PostScalarWhereWithAggregatesInput {
   })
   created_at?: DateTimeWithAggregatesFilter | undefined;
 
+  @TypeGraphQL.Field(_type => BoolWithAggregatesFilter, {
+    nullable: true
+  })
+  is_disabled?: BoolWithAggregatesFilter | undefined;
+
   @TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter, {
     nullable: true
   })
