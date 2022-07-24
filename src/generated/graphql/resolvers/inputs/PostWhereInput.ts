@@ -66,6 +66,11 @@ export class PostWhereInput {
   })
   created_at?: DateTimeFilter | undefined;
 
+  @TypeGraphQL.Field(_type => BoolFilter, {
+    nullable: true
+  })
+  is_disabled?: BoolFilter | undefined;
+
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })

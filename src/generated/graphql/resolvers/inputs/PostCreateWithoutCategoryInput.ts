@@ -46,6 +46,11 @@ export class PostCreateWithoutCategoryInput {
   })
   created_at?: Date | undefined;
 
+  @TypeGraphQL.Field(_type => Boolean, {
+    nullable: true
+  })
+  is_disabled?: boolean | undefined;
+
   @TypeGraphQL.Field(_type => Date, {
     nullable: true
   })

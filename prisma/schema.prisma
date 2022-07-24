@@ -7,6 +7,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+generator typegraphql {
+  provider = "typegraphql-prisma"
+  output   = "../src/generated/graphql"
+}
+
 model Account {
   id                String  @id @default(cuid())
   userId            String
@@ -94,6 +99,7 @@ model Post {
   content       String
   isDraft       Boolean   @default(false)
   created_at    DateTime  @default(now())
+  is_disabled  Boolean   @default(false)
   updated_at    DateTime  @updatedAt
   userId        String
   categoryId    String?
