@@ -45,6 +45,11 @@ export class PostCountAggregate {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: false
   })
+  is_disabled!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
   updated_at!: number;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {

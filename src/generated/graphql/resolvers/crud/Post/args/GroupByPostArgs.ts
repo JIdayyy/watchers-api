@@ -20,7 +20,7 @@ export class GroupByPostArgs {
   @TypeGraphQL.Field(_type => [PostScalarFieldEnum], {
     nullable: false
   })
-  by!: Array<"id" | "slug" | "title" | "cover_picture" | "content" | "isDraft" | "created_at" | "updated_at" | "userId" | "categoryId">;
+  by!: Array<"id" | "slug" | "title" | "cover_picture" | "content" | "isDraft" | "created_at" | "is_disabled" | "updated_at" | "userId" | "categoryId">;
 
   @TypeGraphQL.Field(_type => PostScalarWhereWithAggregatesInput, {
     nullable: true

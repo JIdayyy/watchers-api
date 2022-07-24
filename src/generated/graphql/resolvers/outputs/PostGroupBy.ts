@@ -45,6 +45,11 @@ export class PostGroupBy {
   })
   created_at!: Date;
 
+  @TypeGraphQL.Field(_type => Boolean, {
+    nullable: false
+  })
+  is_disabled!: boolean;
+
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })

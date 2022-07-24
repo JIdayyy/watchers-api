@@ -42,6 +42,11 @@ export class PostMinAggregate {
   })
   created_at!: Date | null;
 
+  @TypeGraphQL.Field(_type => Boolean, {
+    nullable: true
+  })
+  is_disabled!: boolean | null;
+
   @TypeGraphQL.Field(_type => Date, {
     nullable: true
   })
